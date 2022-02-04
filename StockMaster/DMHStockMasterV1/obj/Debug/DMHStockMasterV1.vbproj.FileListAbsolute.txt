@@ -1,0 +1,13 @@
+C:\T-Level\Project Files\reimagined-disco\StockMaster\DMHStockMasterV1\obj\Debug\DMHStockMasterV1.vbproj.AssemblyReference.cache
+C:\T-Level\Project Files\reimagined-disco\StockMaster\DMHStockMasterV1\obj\Debug\DMHStockMasterV1.vbproj.SuggestedBindingRedirects.cache
+C:\T-Level\Project Files\reimagined-disco\StockMaster\DMHStockMasterV1\obj\Debug\DMHStockMasterV1.FrmMain.resources
+C:\T-Level\Project Files\reimagined-disco\StockMaster\DMHStockMasterV1\obj\Debug\DMHStockMasterV1.Resources.resources
+C:\T-Level\Project Files\reimagined-disco\StockMaster\DMHStockMasterV1\obj\Debug\DMHStockMasterV1.vbproj.GenerateResource.cache
+C:\T-Level\Project Files\reimagined-disco\StockMaster\DMHStockMasterV1\obj\Debug\DMHStockMasterV1.vbproj.CoreCompileInputs.cache
+C:\T-Level\Project Files\reimagined-disco\StockMaster\DMHStockMasterV1\bin\Debug\DMHStockMasterV1.exe.config
+C:\T-Level\Project Files\reimagined-disco\StockMaster\DMHStockMasterV1\bin\Debug\DMHStockMasterV1.exe
+C:\T-Level\Project Files\reimagined-disco\StockMaster\DMHStockMasterV1\bin\Debug\DMHStockMasterV1.pdb
+C:\T-Level\Project Files\reimagined-disco\StockMaster\DMHStockMasterV1\bin\Debug\DMHStockMasterV1.xml
+C:\T-Level\Project Files\reimagined-disco\StockMaster\DMHStockMasterV1\obj\Debug\DMHStockMasterV1.exe
+C:\T-Level\Project Files\reimagined-disco\StockMaster\DMHStockMasterV1\obj\Debug\DMHStockMasterV1.xml
+C:\T-Level\Project Files\reimagined-disco\StockMaster\DMHStockMasterV1\obj\Debug\DMHStockMasterV1.pdb
