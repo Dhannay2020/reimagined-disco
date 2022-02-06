@@ -235,8 +235,20 @@
     <EmbeddedResource Include="FrmShopReturn.resx">
       <DependentUpon>FrmShopReturn.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmShopTransfer.resx">
+      <DependentUpon>FrmShopTransfer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStock.resx">
+      <DependentUpon>FrmStock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSupplier.resx">
+      <DependentUpon>FrmSupplier.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdatedSales.resx">
       <DependentUpon>FrmUpdatedSales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWarehouse.resx">
+      <DependentUpon>FrmWarehouse.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWarehouseAdjustment.resx">
       <DependentUpon>FrmWarehouseAdjustment.vb</DependentUpon>

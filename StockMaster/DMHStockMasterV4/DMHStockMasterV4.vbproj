@@ -73,6 +73,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClsDelete.vb" />
     <Compile Include="FrmDataGrid.Designer.vb">
       <DependentUpon>FrmDataGrid.vb</DependentUpon>
     </Compile>
@@ -101,6 +102,12 @@
       <DependentUpon>FrmSetting.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShop.Designer.vb">
+      <DependentUpon>FrmShop.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShop.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmShopAdjustment.Designer.vb">
@@ -145,10 +152,22 @@
     <Compile Include="FrmSupplier.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmWarehouse.Designer.vb">
+      <DependentUpon>FrmWarehouse.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWarehouse.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmWarehouseAdjustment.Designer.vb">
       <DependentUpon>FrmWarehouseAdjustment.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmWarehouseAdjustment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWarehouseReturn.Designer.vb">
+      <DependentUpon>FrmWarehouseReturn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWarehouseReturn.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -168,6 +187,54 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmDataGrid.resx">
+      <DependentUpon>FrmDataGrid.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMainInterface.resx">
+      <DependentUpon>FrmMainInterface.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPurchaseOrder.resx">
+      <DependentUpon>FrmPurchaseOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportCriteria.resx">
+      <DependentUpon>FrmReportCriteria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetting.resx">
+      <DependentUpon>FrmSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShop.resx">
+      <DependentUpon>FrmShop.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShopAdjustment.resx">
+      <DependentUpon>FrmShopAdjustment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShopDelivery.resx">
+      <DependentUpon>FrmShopDelivery.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShopReturn.resx">
+      <DependentUpon>FrmShopReturn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShopSale.resx">
+      <DependentUpon>FrmShopSale.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShopTransfer.resx">
+      <DependentUpon>FrmShopTransfer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStock.resx">
+      <DependentUpon>FrmStock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSupplier.resx">
+      <DependentUpon>FrmSupplier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWarehouse.resx">
+      <DependentUpon>FrmWarehouse.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWarehouseAdjustment.resx">
+      <DependentUpon>FrmWarehouseAdjustment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWarehouseReturn.resx">
+      <DependentUpon>FrmWarehouseReturn.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
