@@ -91,16 +91,76 @@
     <Compile Include="FrmBackup.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmCriteria.Designer.vb">
+      <DependentUpon>FrmCriteria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCriteria.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmMain.Designer.vb">
       <DependentUpon>FrmMain.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmPurchaseOrder.Designer.vb">
+      <DependentUpon>FrmPurchaseOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPurchaseOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmReports.Designer.vb">
       <DependentUpon>FrmReports.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmReports.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetting.Designer.vb">
+      <DependentUpon>FrmSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShop.Designer.vb">
+      <DependentUpon>FrmShop.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShop.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopAdjustment.Designer.vb">
+      <DependentUpon>FrmShopAdjustment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopAdjustment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopDelivery.Designer.vb">
+      <DependentUpon>FrmShopDelivery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopDelivery.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopReturn.Designer.vb">
+      <DependentUpon>FrmShopReturn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopReturn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopTransfer.Designer.vb">
+      <DependentUpon>FrmShopTransfer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopTransfer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStock.Designer.vb">
+      <DependentUpon>FrmStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSupplier.Designer.vb">
+      <DependentUpon>FrmSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSupplier.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmUpdatedSales.Designer.vb">
@@ -148,11 +208,32 @@
     <EmbeddedResource Include="FrmBackup.resx">
       <DependentUpon>FrmBackup.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCriteria.resx">
+      <DependentUpon>FrmCriteria.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPurchaseOrder.resx">
+      <DependentUpon>FrmPurchaseOrder.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReports.resx">
       <DependentUpon>FrmReports.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetting.resx">
+      <DependentUpon>FrmSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShop.resx">
+      <DependentUpon>FrmShop.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShopAdjustment.resx">
+      <DependentUpon>FrmShopAdjustment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShopDelivery.resx">
+      <DependentUpon>FrmShopDelivery.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShopReturn.resx">
+      <DependentUpon>FrmShopReturn.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdatedSales.resx">
       <DependentUpon>FrmUpdatedSales.vb</DependentUpon>

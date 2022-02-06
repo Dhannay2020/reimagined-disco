@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DMHStockMasterV1", "DMHStockMasterV1\DMHStockMasterV1.vbproj", "{13F7CF1A-80A4-4DA1-8287-A00467CB4CF0}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DMHStockMasterV4", "DMHStockMasterV4\DMHStockMasterV4.vbproj", "{A1C1BF36-0DE1-4793-8D9F-22983A3333F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMHStockMasterV5", "DMHStockMasterV5\DMHStockMasterV5.csproj", "{C0A62F90-504E-4CC4-A78F-32ED9767DD75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{13F7CF1A-80A4-4DA1-8287-A00467CB4CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13F7CF1A-80A4-4DA1-8287-A00467CB4CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13F7CF1A-80A4-4DA1-8287-A00467CB4CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1C1BF36-0DE1-4793-8D9F-22983A3333F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1C1BF36-0DE1-4793-8D9F-22983A3333F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1C1BF36-0DE1-4793-8D9F-22983A3333F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1C1BF36-0DE1-4793-8D9F-22983A3333F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0A62F90-504E-4CC4-A78F-32ED9767DD75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0A62F90-504E-4CC4-A78F-32ED9767DD75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0A62F90-504E-4CC4-A78F-32ED9767DD75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0A62F90-504E-4CC4-A78F-32ED9767DD75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

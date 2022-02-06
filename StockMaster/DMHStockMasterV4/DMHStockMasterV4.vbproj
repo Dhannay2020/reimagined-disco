@@ -73,11 +73,82 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="FrmDataGrid.Designer.vb">
+      <DependentUpon>FrmDataGrid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDataGrid.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="FrmMainInterface.Designer.vb">
+      <DependentUpon>FrmMainInterface.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMainInterface.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPurchaseOrder.Designer.vb">
+      <DependentUpon>FrmPurchaseOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPurchaseOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportCriteria.Designer.vb">
+      <DependentUpon>FrmReportCriteria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportCriteria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetting.Designer.vb">
+      <DependentUpon>FrmSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopAdjustment.Designer.vb">
+      <DependentUpon>FrmShopAdjustment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopAdjustment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopDelivery.Designer.vb">
+      <DependentUpon>FrmShopDelivery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopDelivery.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopReturn.Designer.vb">
+      <DependentUpon>FrmShopReturn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopReturn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopSale.Designer.vb">
+      <DependentUpon>FrmShopSale.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopSale.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopTransfer.Designer.vb">
+      <DependentUpon>FrmShopTransfer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopTransfer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStock.Designer.vb">
+      <DependentUpon>FrmStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSupplier.Designer.vb">
+      <DependentUpon>FrmSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSupplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWarehouseAdjustment.Designer.vb">
+      <DependentUpon>FrmWarehouseAdjustment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWarehouseAdjustment.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
