@@ -4,14 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{13F7CF1A-80A4-4DA1-8287-A00467CB4CF0}</ProjectGuid>
+    <ProjectGuid>{A1C1BF36-0DE1-4793-8D9F-22983A3333F2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>DMHStockMasterV1.My.MyApplication</StartupObject>
-    <RootNamespace>DMHStockMasterV1</RootNamespace>
-    <AssemblyName>DMHStockMasterV1</AssemblyName>
+    <StartupObject>DMHStockMasterV4.My.MyApplication</StartupObject>
+    <RootNamespace>DMHStockMasterV4</RootNamespace>
+    <AssemblyName>DMHStockMasterV4</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>DMHStockMasterV1.xml</DocumentationFile>
+    <DocumentationFile>DMHStockMasterV4.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>DMHStockMasterV1.xml</DocumentationFile>
+    <DocumentationFile>DMHStockMasterV4.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -73,59 +73,17 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmAboutBox.Designer.vb">
-      <DependentUpon>FrmAboutBox.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmAboutBox.vb">
+    <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAdjustmentViewer.Designer.vb">
-      <DependentUpon>FrmAdjustmentViewer.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmAdjustmentViewer.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBackup.Designer.vb">
-      <DependentUpon>FrmBackup.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmBackup.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMain.Designer.vb">
-      <DependentUpon>FrmMain.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMain.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmReports.Designer.vb">
-      <DependentUpon>FrmReports.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmReports.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmUpdatedSales.Designer.vb">
-      <DependentUpon>FrmUpdatedSales.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmUpdatedSales.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmWarehouse.Designer.vb">
-      <DependentUpon>FrmWarehouse.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmWarehouse.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmWarehouseAdjustment.Designer.vb">
-      <DependentUpon>FrmWarehouseAdjustment.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmWarehouseAdjustment.vb">
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -139,27 +97,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FrmAboutBox.resx">
-      <DependentUpon>FrmAboutBox.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmAdjustmentViewer.resx">
-      <DependentUpon>FrmAdjustmentViewer.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmBackup.resx">
-      <DependentUpon>FrmBackup.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
-      <DependentUpon>FrmMain.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmReports.resx">
-      <DependentUpon>FrmReports.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmUpdatedSales.resx">
-      <DependentUpon>FrmUpdatedSales.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmWarehouseAdjustment.resx">
-      <DependentUpon>FrmWarehouseAdjustment.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
