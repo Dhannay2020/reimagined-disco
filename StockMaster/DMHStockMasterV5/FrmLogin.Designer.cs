@@ -40,7 +40,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(240, 215);
+            this.label2.Location = new System.Drawing.Point(21, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 29);
             this.label2.TabIndex = 17;
@@ -50,7 +50,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(233, 180);
+            this.label1.Location = new System.Drawing.Point(12, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 29);
             this.label1.TabIndex = 16;
@@ -59,7 +59,8 @@
             // TxtPassword
             // 
             this.TxtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPassword.Location = new System.Drawing.Point(337, 212);
+            this.TxtPassword.Location = new System.Drawing.Point(162, 53);
+            this.TxtPassword.MaxLength = 18;
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.PasswordChar = '&';
             this.TxtPassword.Size = new System.Drawing.Size(230, 35);
@@ -68,34 +69,39 @@
             // TxtUserName
             // 
             this.TxtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtUserName.Location = new System.Drawing.Point(337, 180);
+            this.TxtUserName.Location = new System.Drawing.Point(162, 12);
+            this.TxtUserName.MaxLength = 16;
             this.TxtUserName.Name = "TxtUserName";
             this.TxtUserName.Size = new System.Drawing.Size(230, 35);
             this.TxtUserName.TabIndex = 14;
             // 
             // CmdExit
             // 
-            this.CmdExit.Location = new System.Drawing.Point(483, 244);
+            this.CmdExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CmdExit.Location = new System.Drawing.Point(283, 107);
             this.CmdExit.Name = "CmdExit";
-            this.CmdExit.Size = new System.Drawing.Size(84, 26);
+            this.CmdExit.Size = new System.Drawing.Size(114, 55);
             this.CmdExit.TabIndex = 13;
             this.CmdExit.Text = "Exit";
             this.CmdExit.UseVisualStyleBackColor = true;
+            this.CmdExit.Click += new System.EventHandler(this.CmdExit_Click);
             // 
             // CmdLogin
             // 
-            this.CmdLogin.Location = new System.Drawing.Point(393, 244);
+            this.CmdLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CmdLogin.Location = new System.Drawing.Point(163, 107);
             this.CmdLogin.Name = "CmdLogin";
-            this.CmdLogin.Size = new System.Drawing.Size(84, 26);
+            this.CmdLogin.Size = new System.Drawing.Size(114, 55);
             this.CmdLogin.TabIndex = 12;
             this.CmdLogin.Text = "Login";
             this.CmdLogin.UseVisualStyleBackColor = true;
+            this.CmdLogin.Click += new System.EventHandler(this.CmdLogin_Click);
             // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(409, 174);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtPassword);
@@ -103,7 +109,7 @@
             this.Controls.Add(this.CmdExit);
             this.Controls.Add(this.CmdLogin);
             this.Name = "FrmLogin";
-            this.Text = "FrmLogin";
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 

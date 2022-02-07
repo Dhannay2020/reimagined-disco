@@ -12,6 +12,8 @@
 
     public partial class FrmMain : Form
     {
+        public Form RefToLoginForm { get; set; }
+        public int UserID { get; set; }
         public FrmMain()
         {
             InitializeComponent();
