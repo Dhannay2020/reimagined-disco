@@ -47,6 +47,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsDatabase.cs" />
+    <Compile Include="FrmAccessLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAccessLevel.Designer.cs">
+      <DependentUpon>FrmAccessLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChangePassword.Designer.cs">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDataGrid.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,11 +83,29 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProfile.Designer.cs">
+      <DependentUpon>FrmProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPurchaseOrder.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmPurchaseOrder.Designer.cs">
       <DependentUpon>FrmPurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportCriteria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportCriteria.Designer.cs">
+      <DependentUpon>FrmReportCriteria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportViewer.Designer.cs">
+      <DependentUpon>FrmReportViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSeason.cs">
       <SubType>Form</SubType>
@@ -107,6 +137,18 @@
     <Compile Include="FrmShopDelivery.Designer.cs">
       <DependentUpon>FrmShopDelivery.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmShopLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopLocation.Designer.cs">
+      <DependentUpon>FrmShopLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopRefund.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopRefund.Designer.cs">
+      <DependentUpon>FrmShopRefund.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmShopReturn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +160,12 @@
     </Compile>
     <Compile Include="FrmShopSale.Designer.cs">
       <DependentUpon>FrmShopSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopStockTake.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopStockTake.Designer.cs">
+      <DependentUpon>FrmShopStockTake.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmShopTransfer.cs">
       <SubType>Form</SubType>
@@ -149,11 +197,29 @@
     <Compile Include="FrmWarehouseAdjustment.Designer.cs">
       <DependentUpon>FrmWarehouseAdjustment.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmWarehouseLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWarehouseLocation.Designer.cs">
+      <DependentUpon>FrmWarehouseLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWarehouseOrderPick.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWarehouseOrderPick.Designer.cs">
+      <DependentUpon>FrmWarehouseOrderPick.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmWarehouseReturn.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmWarehouseReturn.Designer.cs">
       <DependentUpon>FrmWarehouseReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWarehouseStockTake.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWarehouseStockTake.Designer.cs">
+      <DependentUpon>FrmWarehouseStockTake.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmWarehouseTransfer.cs">
       <SubType>Form</SubType>
@@ -163,6 +229,66 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmDataGrid.resx">
+      <DependentUpon>FrmDataGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmployee.resx">
+      <DependentUpon>FrmEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPurchaseOrder.resx">
+      <DependentUpon>FrmPurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSeason.resx">
+      <DependentUpon>FrmSeason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetting.resx">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShop.resx">
+      <DependentUpon>FrmShop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShopAdjustment.resx">
+      <DependentUpon>FrmShopAdjustment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShopDelivery.resx">
+      <DependentUpon>FrmShopDelivery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShopRefund.resx">
+      <DependentUpon>FrmShopRefund.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShopReturn.resx">
+      <DependentUpon>FrmShopReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShopSale.resx">
+      <DependentUpon>FrmShopSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShopTransfer.resx">
+      <DependentUpon>FrmShopTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStock.resx">
+      <DependentUpon>FrmStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSupplier.resx">
+      <DependentUpon>FrmSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWarehouse.resx">
+      <DependentUpon>FrmWarehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWarehouseAdjustment.resx">
+      <DependentUpon>FrmWarehouseAdjustment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWarehouseReturn.resx">
+      <DependentUpon>FrmWarehouseReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWarehouseTransfer.resx">
+      <DependentUpon>FrmWarehouseTransfer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

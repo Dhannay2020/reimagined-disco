@@ -12,6 +12,9 @@
 
     public partial class FrmSetting : Form
     {
+        public string FormMode { get; set; }
+        public int UserID { get; set; }
+        public DateTime OldDate { get; set; }
         public FrmSetting()
         {
             InitializeComponent();

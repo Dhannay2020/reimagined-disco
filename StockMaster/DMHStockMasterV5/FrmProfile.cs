@@ -12,6 +12,9 @@
 
     public partial class FrmProfile : Form
     {
+        public string FormMode { get; set; }
+        public int UserID { get; set; }
+       
         public FrmProfile()
         {
             InitializeComponent();

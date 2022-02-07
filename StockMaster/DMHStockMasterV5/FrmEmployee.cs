@@ -12,6 +12,9 @@
 
     public partial class FrmEmployee : Form
     {
+        public string FormMode { get; set; }
+        public int UserID { get; set; }
+       
         public FrmEmployee()
         {
             InitializeComponent();

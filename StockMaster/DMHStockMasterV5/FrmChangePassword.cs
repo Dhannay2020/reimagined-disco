@@ -12,6 +12,9 @@
 
     public partial class FrmChangePassword : Form
     {
+      
+        public int UserID { get; set; }
+      
         public FrmChangePassword()
         {
             InitializeComponent();

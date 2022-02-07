@@ -894,7 +894,7 @@
         }
         private void LoadOldForm()
         {
-            FrmSettings settings = new FrmSettings
+            FrmSetting settings = new FrmSetting
             {
                 FormMode = "Old"
             };
@@ -902,7 +902,7 @@
         }
         private void LoadNewForm()
         {
-            FrmSettings settings = new FrmSettings
+            FrmSetting settings = new FrmSetting
             {
                 FormMode = "New"
             };

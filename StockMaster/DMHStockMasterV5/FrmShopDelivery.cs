@@ -12,6 +12,9 @@
 
     public partial class FrmShopDelivery : Form
     {
+        public string FormMode { get; set; }
+        public int UserID { get; set; }
+        public DateTime OldDate { get; set; }
         public FrmShopDelivery()
         {
             InitializeComponent();

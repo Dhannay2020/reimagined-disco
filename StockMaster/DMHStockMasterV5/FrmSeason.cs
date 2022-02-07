@@ -12,6 +12,9 @@
 
     public partial class FrmSeason : Form
     {
+        public string FormMode { get; set; }
+        public int UserID { get; set; }
+        public int SeasonID { get; set; }
         public FrmSeason()
         {
             InitializeComponent();
