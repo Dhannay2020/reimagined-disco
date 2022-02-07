@@ -46,11 +46,120 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="ClsDatabase.cs" />
+    <Compile Include="FrmDataGrid.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmDataGrid.Designer.cs">
+      <DependentUpon>FrmDataGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmployee.Designer.cs">
+      <DependentUpon>FrmEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPurchaseOrder.Designer.cs">
+      <DependentUpon>FrmPurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSeason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSeason.Designer.cs">
+      <DependentUpon>FrmSeason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetting.Designer.cs">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShop.Designer.cs">
+      <DependentUpon>FrmShop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopAdjustment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopAdjustment.Designer.cs">
+      <DependentUpon>FrmShopAdjustment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopDelivery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopDelivery.Designer.cs">
+      <DependentUpon>FrmShopDelivery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopReturn.Designer.cs">
+      <DependentUpon>FrmShopReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopSale.Designer.cs">
+      <DependentUpon>FrmShopSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShopTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShopTransfer.Designer.cs">
+      <DependentUpon>FrmShopTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStock.Designer.cs">
+      <DependentUpon>FrmStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSupplier.Designer.cs">
+      <DependentUpon>FrmSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWarehouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWarehouse.Designer.cs">
+      <DependentUpon>FrmWarehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWarehouseAdjustment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWarehouseAdjustment.Designer.cs">
+      <DependentUpon>FrmWarehouseAdjustment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWarehouseReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWarehouseReturn.Designer.cs">
+      <DependentUpon>FrmWarehouseReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWarehouseTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWarehouseTransfer.Designer.cs">
+      <DependentUpon>FrmWarehouseTransfer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

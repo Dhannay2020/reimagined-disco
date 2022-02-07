@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "13f7cf1a-80a4-4da1-8287-a00467cb4cf0": {
+      "ProjectGuid": "13f7cf1a-80a4-4da1-8287-a00467cb4cf0",
+      "DisplayName": "DMHStockMasterV1",
+      "ColorIndex": 0
+    },
+    "a1c1bf36-0de1-4793-8d9f-22983a3333f2": {
+      "ProjectGuid": "a1c1bf36-0de1-4793-8d9f-22983a3333f2",
+      "DisplayName": "DMHStockMasterV4",
+      "ColorIndex": 1
+    },
+    "c0a62f90-504e-4cc4-a78f-32ed9767dd75": {
+      "ProjectGuid": "c0a62f90-504e-4cc4-a78f-32ed9767dd75",
+      "DisplayName": "DMHStockMasterV5",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
