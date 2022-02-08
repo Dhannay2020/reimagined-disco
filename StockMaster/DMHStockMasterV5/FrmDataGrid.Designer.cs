@@ -65,9 +65,10 @@
             this.TsbFind.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.TsbFind.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbFind.Name = "TsbFind";
-            this.TsbFind.Size = new System.Drawing.Size(56, 84);
+            this.TsbFind.Size = new System.Drawing.Size(56, 53);
             this.TsbFind.Text = "Find";
             this.TsbFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.TsbFind.Click += new System.EventHandler(this.TsbFind_Click);
             // 
             // toolStrip1
             // 
@@ -86,7 +87,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(2437, 89);
+            this.toolStrip1.Size = new System.Drawing.Size(2437, 58);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -100,62 +101,69 @@
             this.TsbNew.Size = new System.Drawing.Size(43, 55);
             this.TsbNew.Text = "New";
             this.TsbNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.TsbNew.Click += new System.EventHandler(this.TsbNew_Click);
             // 
             // TsbRecord
             // 
             this.TsbRecord.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.TsbRecord.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbRecord.Name = "TsbRecord";
-            this.TsbRecord.Size = new System.Drawing.Size(82, 84);
+            this.TsbRecord.Size = new System.Drawing.Size(82, 53);
             this.TsbRecord.Text = "Record";
             this.TsbRecord.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.TsbRecord.Click += new System.EventHandler(this.TsbRecord_Click);
             // 
             // TsbDelete
             // 
             this.TsbDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.TsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbDelete.Name = "TsbDelete";
-            this.TsbDelete.Size = new System.Drawing.Size(78, 84);
+            this.TsbDelete.Size = new System.Drawing.Size(78, 53);
             this.TsbDelete.Text = "Delete";
             this.TsbDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.TsbDelete.Click += new System.EventHandler(this.TsbDelete_Click);
             // 
             // TsbRefresh
             // 
             this.TsbRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.TsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbRefresh.Name = "TsbRefresh";
-            this.TsbRefresh.Size = new System.Drawing.Size(88, 84);
+            this.TsbRefresh.Size = new System.Drawing.Size(88, 53);
             this.TsbRefresh.Text = "Refresh";
             this.TsbRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.TsbRefresh.Click += new System.EventHandler(this.TsbRefresh_Click);
             // 
             // TsbPrint
             // 
             this.TsbPrint.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.TsbPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbPrint.Name = "TsbPrint";
-            this.TsbPrint.Size = new System.Drawing.Size(62, 84);
+            this.TsbPrint.Size = new System.Drawing.Size(62, 53);
             this.TsbPrint.Text = "Print";
             this.TsbPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.TsbPrint.Visible = false;
+            this.TsbPrint.Click += new System.EventHandler(this.TsbPrint_Click);
             // 
             // TSBBalances
             // 
             this.TSBBalances.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.TSBBalances.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TSBBalances.Name = "TSBBalances";
-            this.TSBBalances.Size = new System.Drawing.Size(99, 84);
+            this.TSBBalances.Size = new System.Drawing.Size(99, 53);
             this.TSBBalances.Text = "Balances";
             this.TSBBalances.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.TSBBalances.Visible = false;
+            this.TSBBalances.Click += new System.EventHandler(this.TSBBalances_Click);
             // 
             // TsbClose
             // 
             this.TsbClose.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.TsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbClose.Name = "TsbClose";
-            this.TsbClose.Size = new System.Drawing.Size(66, 84);
+            this.TsbClose.Size = new System.Drawing.Size(66, 53);
             this.TsbClose.Text = "Close";
             this.TsbClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.TsbClose.Click += new System.EventHandler(this.TsbClose_Click);
             // 
             // SplitContainer1
             // 
@@ -195,7 +203,7 @@
             // 
             this.SplitContainer2.Panel2.Controls.Add(this.StatusStrip1);
             this.SplitContainer2.Size = new System.Drawing.Size(2437, 1330);
-            this.SplitContainer2.SplitterDistance = 1288;
+            this.SplitContainer2.SplitterDistance = 1286;
             this.SplitContainer2.SplitterWidth = 6;
             this.SplitContainer2.TabIndex = 0;
             // 
@@ -210,7 +218,7 @@
             this.DgvRecords.Name = "DgvRecords";
             this.DgvRecords.ReadOnly = true;
             this.DgvRecords.RowHeadersWidth = 51;
-            this.DgvRecords.Size = new System.Drawing.Size(2437, 1288);
+            this.DgvRecords.Size = new System.Drawing.Size(2437, 1286);
             this.DgvRecords.TabIndex = 0;
             // 
             // StatusStrip1
@@ -220,7 +228,7 @@
             this.TSSLFunction,
             this.TSSCount,
             this.ToolStripStatusLabel3});
-            this.StatusStrip1.Location = new System.Drawing.Point(0, 4);
+            this.StatusStrip1.Location = new System.Drawing.Point(0, 6);
             this.StatusStrip1.Name = "StatusStrip1";
             this.StatusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 24, 0);
             this.StatusStrip1.Size = new System.Drawing.Size(2437, 32);
@@ -253,6 +261,7 @@
             this.Controls.Add(this.SplitContainer1);
             this.Name = "FrmDataGrid";
             this.Text = "FrmDataGrid";
+            this.Load += new System.EventHandler(this.FrmDataGrid_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

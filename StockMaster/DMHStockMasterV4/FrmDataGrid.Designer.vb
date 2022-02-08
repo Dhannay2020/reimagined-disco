@@ -60,7 +60,7 @@ Partial Class FrmDataGrid
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(6)
+        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(5)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -71,9 +71,9 @@ Partial Class FrmDataGrid
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1703, 1406)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1393, 1172)
         Me.SplitContainer1.SplitterDistance = 51
-        Me.SplitContainer1.SplitterWidth = 7
+        Me.SplitContainer1.SplitterWidth = 6
         Me.SplitContainer1.TabIndex = 1
         '
         'toolStrip1
@@ -84,15 +84,14 @@ Partial Class FrmDataGrid
         Me.toolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TsbNew, Me.TsbRecord, Me.TsbDelete, Me.TsbRefresh, Me.TsbPrint, Me.TsbFind, Me.TsbClose})
         Me.toolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.toolStrip1.Name = "toolStrip1"
-        Me.toolStrip1.Padding = New System.Windows.Forms.Padding(0, 0, 4, 0)
-        Me.toolStrip1.Size = New System.Drawing.Size(1703, 58)
+        Me.toolStrip1.Padding = New System.Windows.Forms.Padding(0, 0, 3, 0)
+        Me.toolStrip1.Size = New System.Drawing.Size(1393, 48)
         Me.toolStrip1.TabIndex = 4
         Me.toolStrip1.Text = "toolStrip1"
         '
         'TsbNew
         '
         Me.TsbNew.AutoSize = False
-        Me.TsbNew.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.TsbNew.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TsbNew.Name = "TsbNew"
         Me.TsbNew.Size = New System.Drawing.Size(40, 51)
@@ -104,7 +103,7 @@ Partial Class FrmDataGrid
         Me.TsbRecord.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.TsbRecord.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TsbRecord.Name = "TsbRecord"
-        Me.TsbRecord.Size = New System.Drawing.Size(92, 52)
+        Me.TsbRecord.Size = New System.Drawing.Size(82, 43)
         Me.TsbRecord.Text = "Record"
         Me.TsbRecord.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -113,7 +112,7 @@ Partial Class FrmDataGrid
         Me.TsbDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.TsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TsbDelete.Name = "TsbDelete"
-        Me.TsbDelete.Size = New System.Drawing.Size(87, 52)
+        Me.TsbDelete.Size = New System.Drawing.Size(78, 43)
         Me.TsbDelete.Text = "Delete"
         Me.TsbDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -122,7 +121,7 @@ Partial Class FrmDataGrid
         Me.TsbRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.TsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TsbRefresh.Name = "TsbRefresh"
-        Me.TsbRefresh.Size = New System.Drawing.Size(98, 52)
+        Me.TsbRefresh.Size = New System.Drawing.Size(88, 43)
         Me.TsbRefresh.Text = "Refresh"
         Me.TsbRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -131,7 +130,7 @@ Partial Class FrmDataGrid
         Me.TsbPrint.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.TsbPrint.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TsbPrint.Name = "TsbPrint"
-        Me.TsbPrint.Size = New System.Drawing.Size(71, 52)
+        Me.TsbPrint.Size = New System.Drawing.Size(62, 43)
         Me.TsbPrint.Text = "Print"
         Me.TsbPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -140,7 +139,7 @@ Partial Class FrmDataGrid
         Me.TsbFind.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.TsbFind.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TsbFind.Name = "TsbFind"
-        Me.TsbFind.Size = New System.Drawing.Size(65, 52)
+        Me.TsbFind.Size = New System.Drawing.Size(56, 43)
         Me.TsbFind.Text = "Find"
         Me.TsbFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -149,7 +148,7 @@ Partial Class FrmDataGrid
         Me.TsbClose.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.TsbClose.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TsbClose.Name = "TsbClose"
-        Me.TsbClose.Size = New System.Drawing.Size(75, 52)
+        Me.TsbClose.Size = New System.Drawing.Size(66, 43)
         Me.TsbClose.Text = "Close"
         Me.TsbClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -158,7 +157,7 @@ Partial Class FrmDataGrid
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
         Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(6)
+        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(5)
         Me.SplitContainer2.Name = "SplitContainer2"
         Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -169,9 +168,9 @@ Partial Class FrmDataGrid
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.StatusStrip1)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1703, 1348)
-        Me.SplitContainer2.SplitterDistance = 1313
-        Me.SplitContainer2.SplitterWidth = 7
+        Me.SplitContainer2.Size = New System.Drawing.Size(1393, 1115)
+        Me.SplitContainer2.SplitterDistance = 1076
+        Me.SplitContainer2.SplitterWidth = 6
         Me.SplitContainer2.TabIndex = 0
         '
         'DataGridView1
@@ -197,48 +196,49 @@ Partial Class FrmDataGrid
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(6)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(5)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersWidth = 72
-        Me.DataGridView1.Size = New System.Drawing.Size(1703, 1313)
+        Me.DataGridView1.Size = New System.Drawing.Size(1393, 1076)
         Me.DataGridView1.TabIndex = 0
         '
         'StatusStrip1
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(28, 28)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.TSSCount, Me.ToolStripStatusLabel3})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, -11)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 1)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Padding = New System.Windows.Forms.Padding(2, 0, 26, 0)
-        Me.StatusStrip1.Size = New System.Drawing.Size(1703, 39)
+        Me.StatusStrip1.Padding = New System.Windows.Forms.Padding(2, 0, 21, 0)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1393, 32)
         Me.StatusStrip1.TabIndex = 0
         Me.StatusStrip1.Text = "StatusStrip1"
         '
         'ToolStripStatusLabel1
         '
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(165, 30)
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(141, 25)
         Me.ToolStripStatusLabel1.Text = "Purchase Orders"
         '
         'TSSCount
         '
         Me.TSSCount.Name = "TSSCount"
-        Me.TSSCount.Size = New System.Drawing.Size(57, 30)
+        Me.TSSCount.Size = New System.Drawing.Size(52, 25)
         Me.TSSCount.Text = "0000"
         '
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(86, 30)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(75, 25)
         Me.ToolStripStatusLabel3.Text = "Records"
         '
         'FrmDataGrid
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1703, 1406)
+        Me.ClientSize = New System.Drawing.Size(1393, 1172)
         Me.Controls.Add(Me.SplitContainer1)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmDataGrid"
         Me.Text = "FrmDataGrid"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
