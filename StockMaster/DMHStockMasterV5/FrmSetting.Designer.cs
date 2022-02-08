@@ -90,6 +90,7 @@
             this.CmdRestore.TabIndex = 2;
             this.CmdRestore.Text = "Restore Backup";
             this.CmdRestore.UseVisualStyleBackColor = true;
+            this.CmdRestore.Click += new System.EventHandler(this.CmdRestore_Click);
             // 
             // ComboBox2
             // 
@@ -108,6 +109,7 @@
             this.txtCompanyName.Name = "txtCompanyName";
             this.txtCompanyName.Size = new System.Drawing.Size(682, 26);
             this.txtCompanyName.TabIndex = 0;
+            this.txtCompanyName.Leave += new System.EventHandler(this.txtCompanyName_Leave);
             // 
             // txtVATRate
             // 
@@ -116,6 +118,7 @@
             this.txtVATRate.Name = "txtVATRate";
             this.txtVATRate.Size = new System.Drawing.Size(184, 26);
             this.txtVATRate.TabIndex = 10;
+            this.txtVATRate.Leave += new System.EventHandler(this.txtVATRate_Leave);
             // 
             // Label1
             // 
@@ -134,6 +137,7 @@
             this.txtVATReg.Name = "txtVATReg";
             this.txtVATReg.Size = new System.Drawing.Size(688, 26);
             this.txtVATReg.TabIndex = 11;
+            this.txtVATReg.Leave += new System.EventHandler(this.txtVATReg_Leave);
             // 
             // Label20
             // 
@@ -279,6 +283,7 @@
             this.TabControl2.SelectedIndex = 0;
             this.TabControl2.Size = new System.Drawing.Size(1038, 626);
             this.TabControl2.TabIndex = 2;
+            this.TabControl2.SelectedIndexChanged += new System.EventHandler(this.TabControl2_SelectedIndexChanged);
             // 
             // TabPage3
             // 
@@ -337,6 +342,7 @@
             this.CmdBackup.TabIndex = 1;
             this.CmdBackup.Text = "Create Backup";
             this.CmdBackup.UseVisualStyleBackColor = true;
+            this.CmdBackup.Click += new System.EventHandler(this.CmdBackup_Click);
             // 
             // ComboBox1
             // 
@@ -370,6 +376,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(688, 26);
             this.txtEmail.TabIndex = 9;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtAdd1
             // 
@@ -379,6 +386,7 @@
             this.txtAdd1.Name = "txtAdd1";
             this.txtAdd1.Size = new System.Drawing.Size(688, 26);
             this.txtAdd1.TabIndex = 1;
+            this.txtAdd1.Leave += new System.EventHandler(this.txtAdd1_Leave);
             // 
             // txtWWW
             // 
@@ -388,6 +396,7 @@
             this.txtWWW.Name = "txtWWW";
             this.txtWWW.Size = new System.Drawing.Size(688, 26);
             this.txtWWW.TabIndex = 8;
+            this.txtWWW.Leave += new System.EventHandler(this.txtWWW_Leave);
             // 
             // txtAdd2
             // 
@@ -397,6 +406,7 @@
             this.txtAdd2.Name = "txtAdd2";
             this.txtAdd2.Size = new System.Drawing.Size(688, 26);
             this.txtAdd2.TabIndex = 2;
+            this.txtAdd2.Leave += new System.EventHandler(this.txtAdd2_Leave);
             // 
             // txtFax
             // 
@@ -427,12 +437,13 @@
             this.txtAdd3.Name = "txtAdd3";
             this.txtAdd3.Size = new System.Drawing.Size(688, 26);
             this.txtAdd3.TabIndex = 3;
+            this.txtAdd3.Leave += new System.EventHandler(this.txtAdd3_Leave);
             // 
             // TabControl1
             // 
             this.TabControl1.Controls.Add(this.TabPage1);
             this.TabControl1.Controls.Add(this.TabPage2);
-            this.TabControl1.Location = new System.Drawing.Point(54, 40);
+            this.TabControl1.Location = new System.Drawing.Point(18, 18);
             this.TabControl1.Margin = new System.Windows.Forms.Padding(9);
             this.TabControl1.Name = "TabControl1";
             this.TabControl1.SelectedIndex = 0;
@@ -500,6 +511,7 @@
             this.txtAdd4.Name = "txtAdd4";
             this.txtAdd4.Size = new System.Drawing.Size(688, 26);
             this.txtAdd4.TabIndex = 4;
+            this.txtAdd4.Leave += new System.EventHandler(this.txtAdd4_Leave);
             // 
             // txtPostCode
             // 
@@ -509,37 +521,41 @@
             this.txtPostCode.Name = "txtPostCode";
             this.txtPostCode.Size = new System.Drawing.Size(184, 26);
             this.txtPostCode.TabIndex = 5;
+            this.txtPostCode.Leave += new System.EventHandler(this.txtPostCode_Leave);
             // 
             // CmdCancel
             // 
-            this.CmdCancel.Location = new System.Drawing.Point(1016, 760);
+            this.CmdCancel.Location = new System.Drawing.Point(959, 738);
             this.CmdCancel.Margin = new System.Windows.Forms.Padding(9);
             this.CmdCancel.Name = "CmdCancel";
             this.CmdCancel.Size = new System.Drawing.Size(116, 51);
             this.CmdCancel.TabIndex = 11;
             this.CmdCancel.Text = "Cancel";
             this.CmdCancel.UseVisualStyleBackColor = true;
+            this.CmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
             // 
             // CmdOK
             // 
-            this.CmdOK.Location = new System.Drawing.Point(882, 760);
+            this.CmdOK.Location = new System.Drawing.Point(825, 738);
             this.CmdOK.Margin = new System.Windows.Forms.Padding(9);
             this.CmdOK.Name = "CmdOK";
             this.CmdOK.Size = new System.Drawing.Size(116, 51);
             this.CmdOK.TabIndex = 9;
             this.CmdOK.Text = "OK";
             this.CmdOK.UseVisualStyleBackColor = true;
+            this.CmdOK.Click += new System.EventHandler(this.CmdOK_Click);
             // 
             // FrmSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1682, 1484);
+            this.ClientSize = new System.Drawing.Size(1115, 799);
             this.Controls.Add(this.TabControl1);
             this.Controls.Add(this.CmdCancel);
             this.Controls.Add(this.CmdOK);
             this.Name = "FrmSetting";
             this.Text = "FrmSetting";
+            this.Load += new System.EventHandler(this.FrmSetting_Load);
             this.GroupBox3.ResumeLayout(false);
             this.GroupBox3.PerformLayout();
             this.TabControl2.ResumeLayout(false);
