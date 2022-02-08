@@ -677,12 +677,31 @@
 
         private void TSBBalances_Click(object sender, EventArgs e)
         {
-
+            // Function not implemented.
+            ClsStock stock = new ClsStock();
+            if (FunctionID == 4)
+            {
+                stock.UpdateCostValue();
+                // stock.UpdateAmountTaken();
+                stock.UpdateDeliveredQtyBoxesValue();
+                stock.UpdateDeliveredQtyGarmentsValue();
+                stock.UpdateDeliveredQtyHangersValue();
+                stock.UpdatePCMarkup();
+            }
+            if (FunctionID == 5)
+            {
+                stock.UpdateCostValue();
+                // stock.UpdateAmountTaken();
+                stock.UpdateDeliveredQtyBoxesValue();
+                stock.UpdateDeliveredQtyGarmentsValue();
+                stock.UpdateDeliveredQtyHangersValue();
+                stock.UpdatePCMarkup();
+            }
         }
 
         private void TsbClose_Click(object sender, EventArgs e)
         {
-
+            this.Close();   // close the current data grid view screen
         }
 
         private void FrmDataGrid_Load(object sender, EventArgs e)
