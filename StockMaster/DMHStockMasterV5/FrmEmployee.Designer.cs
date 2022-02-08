@@ -53,6 +53,7 @@
             this.CmdCancel.TabIndex = 37;
             this.CmdCancel.Text = "Cancel";
             this.CmdCancel.UseVisualStyleBackColor = true;
+            this.CmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
             // 
             // CmdOK
             // 
@@ -62,6 +63,7 @@
             this.CmdOK.TabIndex = 36;
             this.CmdOK.Text = "Save";
             this.CmdOK.UseVisualStyleBackColor = true;
+            this.CmdOK.Click += new System.EventHandler(this.CmdOK_Click);
             // 
             // richTextBox1
             // 
@@ -197,6 +199,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmEmployee";
             this.Text = "FrmEmployee";
+            this.Load += new System.EventHandler(this.FrmEmployee_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

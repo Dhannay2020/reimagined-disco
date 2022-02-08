@@ -147,6 +147,7 @@
             this.CmdDeleteFromGrid.TabIndex = 242;
             this.CmdDeleteFromGrid.Text = "Remove";
             this.CmdDeleteFromGrid.UseVisualStyleBackColor = true;
+            this.CmdDeleteFromGrid.Click += new System.EventHandler(this.CmdDeleteFromGrid_Click);
             // 
             // TxtNetCostLine
             // 
@@ -165,6 +166,7 @@
             this.CmdAddToGrid.TabIndex = 241;
             this.CmdAddToGrid.Text = "Add";
             this.CmdAddToGrid.UseVisualStyleBackColor = true;
+            this.CmdAddToGrid.Click += new System.EventHandler(this.CmdAddToGrid_Click);
             // 
             // Label25
             // 
@@ -211,6 +213,7 @@
             this.TxtStockCode.Name = "TxtStockCode";
             this.TxtStockCode.Size = new System.Drawing.Size(218, 26);
             this.TxtStockCode.TabIndex = 236;
+            this.TxtStockCode.Leave += new System.EventHandler(this.TxtStockCode_Leave);
             // 
             // label1
             // 
@@ -345,6 +348,7 @@
             this.TxtVATAmount.Size = new System.Drawing.Size(133, 26);
             this.TxtVATAmount.TabIndex = 249;
             this.TxtVATAmount.Text = "0.00";
+            this.TxtVATAmount.Leave += new System.EventHandler(this.TxtVATAmount_Leave);
             // 
             // TxtTotalNet
             // 
@@ -392,6 +396,7 @@
             this.TxtShipperName.Name = "TxtShipperName";
             this.TxtShipperName.Size = new System.Drawing.Size(196, 26);
             this.TxtShipperName.TabIndex = 244;
+            this.TxtShipperName.Leave += new System.EventHandler(this.TxtShipperName_Leave);
             // 
             // Label8
             // 
@@ -412,6 +417,7 @@
             this.TxtCommission.Size = new System.Drawing.Size(133, 26);
             this.TxtCommission.TabIndex = 248;
             this.TxtCommission.Text = "0.00";
+            this.TxtCommission.Leave += new System.EventHandler(this.TxtCommission_Leave);
             // 
             // TxtDeliveryCharges
             // 
@@ -421,6 +427,7 @@
             this.TxtDeliveryCharges.Size = new System.Drawing.Size(133, 26);
             this.TxtDeliveryCharges.TabIndex = 247;
             this.TxtDeliveryCharges.Text = "0.00";
+            this.TxtDeliveryCharges.Leave += new System.EventHandler(this.TxtDeliveryCharges_Leave);
             // 
             // Label2
             // 
@@ -448,6 +455,7 @@
             this.TxtSuppliersInvoiceNumber.Name = "TxtSuppliersInvoiceNumber";
             this.TxtSuppliersInvoiceNumber.Size = new System.Drawing.Size(196, 26);
             this.TxtSuppliersInvoiceNumber.TabIndex = 246;
+            this.TxtSuppliersInvoiceNumber.Leave += new System.EventHandler(this.TxtSuppliersInvoiceNumber_Leave);
             // 
             // TxtTotalBoxes
             // 
@@ -506,6 +514,7 @@
             this.TxtNotes.Name = "TxtNotes";
             this.TxtNotes.Size = new System.Drawing.Size(314, 93);
             this.TxtNotes.TabIndex = 243;
+            this.TxtNotes.Leave += new System.EventHandler(this.TxtNotes_Leave);
             // 
             // TxtWarehouseName
             // 
@@ -601,6 +610,7 @@
             this.TxtOurRef.Name = "TxtOurRef";
             this.TxtOurRef.Size = new System.Drawing.Size(264, 26);
             this.TxtOurRef.TabIndex = 234;
+            this.TxtOurRef.Leave += new System.EventHandler(this.TxtOurRef_Leave);
             // 
             // TxtWarehouseRef
             // 
@@ -609,6 +619,7 @@
             this.TxtWarehouseRef.Name = "TxtWarehouseRef";
             this.TxtWarehouseRef.Size = new System.Drawing.Size(196, 26);
             this.TxtWarehouseRef.TabIndex = 231;
+            this.TxtWarehouseRef.Leave += new System.EventHandler(this.TxtWarehouseRef_Leave);
             // 
             // label30
             // 
@@ -647,6 +658,7 @@
             this.TxtSupplierRef.Name = "TxtSupplierRef";
             this.TxtSupplierRef.Size = new System.Drawing.Size(196, 26);
             this.TxtSupplierRef.TabIndex = 232;
+            this.TxtSupplierRef.Leave += new System.EventHandler(this.TxtSupplierRef_Leave);
             // 
             // label29
             // 
@@ -696,6 +708,7 @@
             this.cmdCancel.TabIndex = 251;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
+            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
             // cmdOK
             // 
@@ -706,6 +719,7 @@
             this.cmdOK.TabIndex = 250;
             this.cmdOK.Text = "OK";
             this.cmdOK.UseVisualStyleBackColor = true;
+            this.cmdOK.Click += new System.EventHandler(this.cmdOK_Click);
             // 
             // DteMovementDate
             // 
@@ -744,7 +758,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2470, 1607);
+            this.ClientSize = new System.Drawing.Size(1055, 899);
             this.Controls.Add(this.CmdDeleteFromGrid);
             this.Controls.Add(this.TxtNetCostLine);
             this.Controls.Add(this.CmdAddToGrid);
@@ -809,6 +823,7 @@
             this.Controls.Add(this.CheckBox1);
             this.Name = "FrmPurchaseOrder";
             this.Text = "FrmPurchaseOrder";
+            this.Load += new System.EventHandler(this.FrmPurchaseOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
