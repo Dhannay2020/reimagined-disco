@@ -102,7 +102,7 @@
                 };
                 warehouseReturn.LoadNewForm();
             }
-            if (FunctionID == 11)
+            if (FunctionID == 14)
             {
                 ClsShopDelivery shopDelivery = new ClsShopDelivery
                 {
@@ -110,7 +110,7 @@
                 };
                 shopDelivery.LoadNewForm();
             }
-            if (FunctionID == 12)
+            if (FunctionID == 15)
             {
                 ClsShopAdjustment shopAdjustment = new ClsShopAdjustment
                 {
@@ -118,7 +118,7 @@
                 };
                 shopAdjustment.LoadNewForm();
             }
-            if (FunctionID == 13)
+            if (FunctionID == 16)
             {
                 ClsShopTransfer shopTransfer = new ClsShopTransfer
                 {
@@ -126,7 +126,7 @@
                 };
                 shopTransfer.LoadNewForm();
             }
-            if (FunctionID == 14)
+            if (FunctionID == 17)
             {
                 ClsShopSale shopSale = new ClsShopSale
                 {
@@ -134,7 +134,7 @@
                 };
                 shopSale.LoadNewForm();
             }
-            if (FunctionID == 15)
+            if (FunctionID == 19)
             {
                 ClsShopReturn shopReturn = new ClsShopReturn
                 {
@@ -240,7 +240,7 @@
                 };
                 warehouseReturn.LoadSelectedForm();
             }
-            if (FunctionID == 11)
+            if (FunctionID == 14)
             {
                 ClsShopDelivery shopDelivery = new ClsShopDelivery
                 {
@@ -249,7 +249,7 @@
                 };
                 shopDelivery.LoadSelectedForm();
             }
-            if (FunctionID == 12)
+            if (FunctionID == 15)
             {
                 ClsShopAdjustment shopAdjustment = new ClsShopAdjustment
                 {
@@ -258,7 +258,7 @@
                 };
                 shopAdjustment.LoadSelectedForm();
             }
-            if (FunctionID == 13)
+            if (FunctionID == 16)
             {
                 ClsShopTransfer shopTransfer = new ClsShopTransfer
                 {
@@ -267,7 +267,7 @@
                 };
                 shopTransfer.LoadSelectedForm();
             }
-            if (FunctionID == 14)
+            if (FunctionID == 17)
             {
                 ClsShopSale shopSale = new ClsShopSale
                 {
@@ -276,7 +276,7 @@
                 };
                 shopSale.LoadSelectedForm();
             }
-            if (FunctionID == 15)
+            if (FunctionID == 19)
             {
                 ClsShopReturn shopReturn = new ClsShopReturn
                 {
@@ -487,7 +487,7 @@
                     returnHead.DeleteWarehouseReturnHead();
                 }
             }
-            if (FunctionID == 11)
+            if (FunctionID == 14)
             {
                 ClsShopDelivery oShopDelivery = new ClsShopDelivery
                 {
@@ -504,7 +504,7 @@
                 deliveryLine.DeleteShopDeliveryLine();
                 deliveryHead.DeleteShopDeliveryHead();
             }
-            if (FunctionID == 12)
+            if (FunctionID == 15)
             {
                 ClsShopAdjustment oShopAdjustment = new ClsShopAdjustment
                 {
@@ -522,7 +522,7 @@
                 adjustmentHead.DeleteShopAdjustHead();
 
             }
-            if (FunctionID == 13)
+            if (FunctionID == 16)
             {
                 ClsShopTransfer oShopTransfer = new ClsShopTransfer
                 {
@@ -539,7 +539,7 @@
                 transferLine.DeleteShopTransferLine();
                 transferHead.DeleteShopTransferHead();
             }
-            if (FunctionID == 14)
+            if (FunctionID == 17)
             {
                 ClsShopSale oShopSale = new ClsShopSale
                 {
@@ -556,7 +556,7 @@
                 saleLine.DeleteShopSaleLine();
                 saleHead.DeleteShopSaleHead();
             }
-            if (FunctionID == 15)
+            if (FunctionID == 19)
             {
                 ClsShopReturn oShopReturn = new ClsShopReturn
                 {
@@ -647,27 +647,27 @@
                 // clsWarehouseReturn oWarehouseReturn = new clsWarehouseReturn();
                 BindingSource1.Filter = "WarehouseRef Like '%" + Interaction.InputBox("Please Enter a Warehouse Reference Code", Application.ProductName) + "'";
             }
-            if (FunctionID == 11)
+            if (FunctionID == 14)
             {
                 // clsShopDelivery oShopDelivery = new clsShopDelivery();
                 BindingSource1.Filter = "WarehouseRef Like '%" + Interaction.InputBox("Please Enter a Warehouse Reference Code", Application.ProductName) + "'";
             }
-            if (FunctionID == 12)
+            if (FunctionID == 15)
             {
                 // clsShopAdjustment oShopAdjustment = new clsShopAdjustment();
                 BindingSource1.Filter = "ShopRef Like '%" + Interaction.InputBox("Please Enter a Shop Reference Code", Application.ProductName) + "'";
             }
-            if (FunctionID == 13)
+            if (FunctionID == 16)
             {
                 // clsShopTransfer oShopTransfer = new clsShopTransfer();
                 BindingSource1.Filter = "FromShopRef Like '%" + Interaction.InputBox("Please Enter a Shop Reference Code", Application.ProductName) + "'";
             }
-            if (FunctionID == 14)
+            if (FunctionID == 17)
             {
                 // clsShopSale oShopSale = new clsShopSale();
                 BindingSource1.Filter = "ShopRef Like '%" + Interaction.InputBox("Please Enter a Shop Reference Code", Application.ProductName) + "'";
             }
-            if (FunctionID == 15)
+            if (FunctionID == 19)
             {
                 //  clsShopReturn oShopReturn = new clsShopReturn();
                 BindingSource1.Filter = "WarehouseRef Like '%" + Interaction.InputBox("Please Enter a Warehouse Reference Code", Application.ProductName) + "'";
@@ -679,7 +679,7 @@
         {
             // Function not implemented.
             ClsStock stock = new ClsStock();
-            if (FunctionID == 4)
+            if (FunctionID == 4 || FunctionID == 5)
             {
                 stock.UpdateCostValue();
                 // stock.UpdateAmountTaken();
@@ -687,16 +687,7 @@
                 stock.UpdateDeliveredQtyGarmentsValue();
                 stock.UpdateDeliveredQtyHangersValue();
                 stock.UpdatePCMarkup();
-            }
-            if (FunctionID == 5)
-            {
-                stock.UpdateCostValue();
-                // stock.UpdateAmountTaken();
-                stock.UpdateDeliveredQtyBoxesValue();
-                stock.UpdateDeliveredQtyGarmentsValue();
-                stock.UpdateDeliveredQtyHangersValue();
-                stock.UpdatePCMarkup();
-            }
+            }            
         }
 
         private void TsbClose_Click(object sender, EventArgs e)
@@ -801,7 +792,7 @@
                 int count = DgvRecords.Rows.Count;
                 TSSCount.Text = count.ToString();
             }
-            if (FunctionID == 4)
+            if (FunctionID == 4 || FunctionID == 5)
             {
                 // Stock Code
                 DgvRecords.Columns[0].HeaderText = "Stock Code";
@@ -851,66 +842,14 @@
                 DgvRecords.Columns[10].Width = 50;
                 DgvRecords.Columns[10].Visible = true;
 
-                TSSLFunction.Text = "Current Stock";
+                if (FunctionID == 4)
+                    TSSLFunction.Text = "Current Stock";
+                else
+                    TSSLFunction.Text = "All Stock";
                 TSBBalances.Visible = true;
                 int count = DgvRecords.Rows.Count;
                 TSSCount.Text = count.ToString();
-            }
-            if (FunctionID == 5)
-            {
-                // Stock Code
-                DgvRecords.Columns[0].HeaderText = "Stock Code";
-                DgvRecords.Columns[0].Width = 150;
-                DgvRecords.Columns[0].Visible = true;
-                // SupplierRef
-                DgvRecords.Columns[1].HeaderText = "Supplier Ref";
-                DgvRecords.Columns[1].Width = 150;
-                DgvRecords.Columns[1].Visible = true;
-                // SeasonName
-                DgvRecords.Columns[2].HeaderText = "Season Name";
-                DgvRecords.Columns[2].Width = 150;
-                DgvRecords.Columns[2].Visible = true;
-                // DeadCode
-                DgvRecords.Columns[3].HeaderText = "Dead Code";
-                DgvRecords.Columns[3].Width = 50;
-                DgvRecords.Columns[3].Visible = true;
-                // AmountTaken
-                DgvRecords.Columns[4].HeaderText = "Sales Amount";
-                DgvRecords.Columns[4].Width = 100;
-                DgvRecords.Columns[4].Visible = true;
-                DgvRecords.Columns[4].DefaultCellStyle.Format = "C2";
-                // DeliveredQtyHangers
-                DgvRecords.Columns[5].HeaderText = "Qty Hangers";
-                DgvRecords.Columns[5].Width = 50;
-                DgvRecords.Columns[5].Visible = true;
-                // DeliveredQtyBoxes
-                DgvRecords.Columns[6].HeaderText = "Qty Boxes";
-                DgvRecords.Columns[6].Width = 80;
-                DgvRecords.Columns[6].Visible = true;
-                // DeliveredQtyGarments
-                DgvRecords.Columns[7].HeaderText = "Qty Garments";
-                DgvRecords.Columns[7].Width = 80;
-                DgvRecords.Columns[7].Visible = true;
-                // CostValue
-                DgvRecords.Columns[8].HeaderText = "Purchase Value";
-                DgvRecords.Columns[8].Width = 100;
-                DgvRecords.Columns[8].Visible = true;
-                DgvRecords.Columns[8].DefaultCellStyle.Format = "C2";
-                // PCMarkup
-                DgvRecords.Columns[9].HeaderText = "Profit";
-                DgvRecords.Columns[9].Width = 100;
-                DgvRecords.Columns[9].Visible = true;
-                DgvRecords.Columns[9].DefaultCellStyle.Format = "P2";
-                // ZeroQty
-                DgvRecords.Columns[10].HeaderText = "Zero Qty";
-                DgvRecords.Columns[10].Width = 50;
-                DgvRecords.Columns[10].Visible = true;
-
-                TSSLFunction.Text = "All Stock";
-                TSBBalances.Visible = true;
-                int count = DgvRecords.Rows.Count;
-                TSSCount.Text = count.ToString();
-            }
+            }            
             if (FunctionID == 6)
             {
                 // Season ID
@@ -1148,7 +1087,7 @@
                 int count = DgvRecords.Rows.Count;
                 TSSCount.Text = count.ToString();
             }
-            if (FunctionID == 11)
+            if (FunctionID == 14)
             {
                 // Shop Deliveries ID
                 DgvRecords.Columns[0].HeaderText = "Shop Delivery ID";
@@ -1199,7 +1138,7 @@
                 int count = DgvRecords.Rows.Count;
                 TSSCount.Text = count.ToString();
             }
-            if (FunctionID == 12)
+            if (FunctionID == 15)
             {
                 // Shop Adjustment ID
                 DgvRecords.Columns[0].HeaderText = "Shop Adjustment ID";
@@ -1238,7 +1177,7 @@
                 int count = DgvRecords.Rows.Count;
                 TSSCount.Text = count.ToString();
             }
-            if (FunctionID == 13)
+            if (FunctionID == 16)
             {
                 // Shop Transfer ID
                 DgvRecords.Columns[0].HeaderText = "SH Transfer ID";
@@ -1281,7 +1220,7 @@
                 int count = DgvRecords.Rows.Count;
                 TSSCount.Text = count.ToString();
             }
-            if (FunctionID == 14)
+            if (FunctionID == 17)
             {
                 // Sales ID
                 DgvRecords.Columns[0].HeaderText = "Sales ID";
@@ -1326,7 +1265,7 @@
                 int count = DgvRecords.Rows.Count;
                 TSSCount.Text = count.ToString();
             }
-            if (FunctionID == 15)
+            if (FunctionID == 19)
             {
                 // Shop Returns ID
                 DgvRecords.Columns[0].HeaderText = "SH Return ID";
@@ -1365,7 +1304,7 @@
                 int count = DgvRecords.Rows.Count;
                 TSSCount.Text = count.ToString();
             }
-            if (FunctionID == 16)
+            if (FunctionID == 22)
             {
                 DgvRecords.Columns[2].DefaultCellStyle.Format = "C2";
                 TSSLFunction.Text = "Total Value";
@@ -1426,27 +1365,27 @@
             {
                 SqlCmdString = "SELECT * from qryWarehouseReturns";
             }
-            if (FunctionID == 11)
+            if (FunctionID == 14)
             {
                 SqlCmdString = "SELECT * from qryShopDeliveries";
             }
-            if (FunctionID == 12)
+            if (FunctionID == 15)
             {
                 SqlCmdString = "SELECT * from qryShopAdjustments";
             }
-            if (FunctionID == 13)
+            if (FunctionID == 16)
             {
                 SqlCmdString = "SELECT * from qryShopTransfers";
             }
-            if (FunctionID == 14)
+            if (FunctionID == 17)
             {
                 SqlCmdString = "SELECT * from qryShopSales";
             }
-            if (FunctionID == 15)
+            if (FunctionID == 19)
             {
                 SqlCmdString = "SELECT * from qryShopReturns";
             }
-            if (FunctionID == 16)
+            if (FunctionID == 22)
             {
                 SqlCmdString = "SELECT * from qryTotalValue";
             }
