@@ -706,9 +706,9 @@
 
         private void FrmDataGrid_Load(object sender, EventArgs e)
         {
-            LoadData(); // loads the data from the database
-            SetupStyleGrid();   // sets up the style of the form
-            CustomiseDataGrid();    // changes titles and widths
+            //LoadData(); // loads the data from the database
+           // SetupStyleGrid();   // sets up the style of the form
+          //  CustomiseDataGrid();    // changes titles and widths
         }
         private void SetupStyleGrid()
         {
