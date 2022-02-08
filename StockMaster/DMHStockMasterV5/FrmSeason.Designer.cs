@@ -45,6 +45,7 @@
             this.CmdCancel.TabIndex = 23;
             this.CmdCancel.Text = "Cancel";
             this.CmdCancel.UseVisualStyleBackColor = true;
+            this.CmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
             // 
             // TxtSeasonName
             // 
@@ -92,12 +93,13 @@
             this.CmdOK.TabIndex = 18;
             this.CmdOK.Text = "OK";
             this.CmdOK.UseVisualStyleBackColor = true;
+            this.CmdOK.Click += new System.EventHandler(this.CmdOK_Click);
             // 
             // FrmSeason
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(666, 205);
             this.Controls.Add(this.CmdCancel);
             this.Controls.Add(this.TxtSeasonName);
             this.Controls.Add(this.LblSeasonID);
@@ -106,6 +108,7 @@
             this.Controls.Add(this.CmdOK);
             this.Name = "FrmSeason";
             this.Text = "FrmSeason";
+            this.Load += new System.EventHandler(this.FrmSeason_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

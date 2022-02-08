@@ -455,7 +455,6 @@
             this.TxtSuppliersInvoiceNumber.Name = "TxtSuppliersInvoiceNumber";
             this.TxtSuppliersInvoiceNumber.Size = new System.Drawing.Size(196, 26);
             this.TxtSuppliersInvoiceNumber.TabIndex = 246;
-            this.TxtSuppliersInvoiceNumber.Leave += new System.EventHandler(this.TxtSuppliersInvoiceNumber_Leave);
             // 
             // TxtTotalBoxes
             // 
@@ -687,6 +686,7 @@
             this.DgvItems.RowHeadersWidth = 51;
             this.DgvItems.Size = new System.Drawing.Size(932, 289);
             this.DgvItems.TabIndex = 285;
+            this.DgvItems.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvItems_CellEndEdit);
             // 
             // Label15
             // 
