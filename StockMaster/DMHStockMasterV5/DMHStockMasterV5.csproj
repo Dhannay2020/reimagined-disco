@@ -48,6 +48,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsDatabase.cs" />
+    <Compile Include="ClsEmployee.cs" />
+    <Compile Include="ClsLog.cs" />
+    <Compile Include="ClsPurchaseOrder.cs" />
+    <Compile Include="ClsSeason.cs" />
+    <Compile Include="ClsSetting.cs" />
+    <Compile Include="ClsShop.cs" />
+    <Compile Include="ClsUtils.cs" />
     <Compile Include="FrmAccessLevel.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -79,28 +79,28 @@ Partial Class FrmMain
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel3})
-        Me.StatusStrip1.Location = New System.Drawing.Point(90, 1365)
+        Me.StatusStrip1.Location = New System.Drawing.Point(102, 1420)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Padding = New System.Windows.Forms.Padding(2, 0, 26, 0)
-        Me.StatusStrip1.Size = New System.Drawing.Size(2474, 39)
+        Me.StatusStrip1.Padding = New System.Windows.Forms.Padding(3, 0, 28, 0)
+        Me.StatusStrip1.Size = New System.Drawing.Size(2695, 42)
         Me.StatusStrip1.TabIndex = 22
         Me.StatusStrip1.Text = "StatusStrip1"
         '
         'ToolStripStatusLabel1
         '
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(0, 30)
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(0, 32)
         '
         'ToolStripStatusLabel2
         '
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(24, 30)
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(28, 32)
         Me.ToolStripStatusLabel2.Text = "0"
         '
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(98, 30)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(112, 32)
         Me.ToolStripStatusLabel3.Text = "Record(s)"
         '
         'DgvRecords
@@ -125,12 +125,12 @@ Partial Class FrmMain
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DgvRecords.DefaultCellStyle = DataGridViewCellStyle2
         Me.DgvRecords.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DgvRecords.Location = New System.Drawing.Point(90, 39)
+        Me.DgvRecords.Location = New System.Drawing.Point(102, 43)
         Me.DgvRecords.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.DgvRecords.Name = "DgvRecords"
         Me.DgvRecords.ReadOnly = True
         Me.DgvRecords.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-        Me.DgvRecords.Size = New System.Drawing.Size(2474, 1365)
+        Me.DgvRecords.Size = New System.Drawing.Size(2695, 1419)
         Me.DgvRecords.TabIndex = 21
         '
         'ToolStrip1
@@ -140,11 +140,11 @@ Partial Class FrmMain
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripButton, Me.RecordToolStripButton, Me.DeleteToolStripButton, Me.RefreshToolStripButton, Me.PrintToolStripButton, Me.ProveToolStripButton, Me.FindToolStripButton, Me.TransferToolStripButton, Me.CloseToolStripButton, Me.AboutToolStripButton})
         Me.ToolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow
-        Me.ToolStrip1.Location = New System.Drawing.Point(0, 39)
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 43)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Padding = New System.Windows.Forms.Padding(0, 0, 4, 0)
         Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.ToolStrip1.Size = New System.Drawing.Size(90, 1365)
+        Me.ToolStrip1.Size = New System.Drawing.Size(102, 1419)
         Me.ToolStrip1.TabIndex = 19
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -154,7 +154,7 @@ Partial Class FrmMain
         Me.NewToolStripButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.NewToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.NewToolStripButton.Name = "NewToolStripButton"
-        Me.NewToolStripButton.Size = New System.Drawing.Size(81, 58)
+        Me.NewToolStripButton.Size = New System.Drawing.Size(93, 60)
         Me.NewToolStripButton.Text = "New"
         Me.NewToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -163,7 +163,7 @@ Partial Class FrmMain
         Me.RecordToolStripButton.Image = CType(resources.GetObject("RecordToolStripButton.Image"), System.Drawing.Image)
         Me.RecordToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.RecordToolStripButton.Name = "RecordToolStripButton"
-        Me.RecordToolStripButton.Size = New System.Drawing.Size(81, 58)
+        Me.RecordToolStripButton.Size = New System.Drawing.Size(93, 60)
         Me.RecordToolStripButton.Text = "Record"
         Me.RecordToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -173,7 +173,7 @@ Partial Class FrmMain
         Me.DeleteToolStripButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.DeleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.DeleteToolStripButton.Name = "DeleteToolStripButton"
-        Me.DeleteToolStripButton.Size = New System.Drawing.Size(81, 58)
+        Me.DeleteToolStripButton.Size = New System.Drawing.Size(93, 60)
         Me.DeleteToolStripButton.Text = "Delete"
         Me.DeleteToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -182,7 +182,7 @@ Partial Class FrmMain
         Me.RefreshToolStripButton.Image = CType(resources.GetObject("RefreshToolStripButton.Image"), System.Drawing.Image)
         Me.RefreshToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.RefreshToolStripButton.Name = "RefreshToolStripButton"
-        Me.RefreshToolStripButton.Size = New System.Drawing.Size(81, 58)
+        Me.RefreshToolStripButton.Size = New System.Drawing.Size(93, 60)
         Me.RefreshToolStripButton.Text = "Refresh"
         Me.RefreshToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -191,7 +191,7 @@ Partial Class FrmMain
         Me.PrintToolStripButton.Image = CType(resources.GetObject("PrintToolStripButton.Image"), System.Drawing.Image)
         Me.PrintToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.PrintToolStripButton.Name = "PrintToolStripButton"
-        Me.PrintToolStripButton.Size = New System.Drawing.Size(81, 58)
+        Me.PrintToolStripButton.Size = New System.Drawing.Size(93, 60)
         Me.PrintToolStripButton.Text = "Print"
         Me.PrintToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -200,7 +200,7 @@ Partial Class FrmMain
         Me.ProveToolStripButton.Image = CType(resources.GetObject("ProveToolStripButton.Image"), System.Drawing.Image)
         Me.ProveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ProveToolStripButton.Name = "ProveToolStripButton"
-        Me.ProveToolStripButton.Size = New System.Drawing.Size(83, 58)
+        Me.ProveToolStripButton.Size = New System.Drawing.Size(96, 60)
         Me.ProveToolStripButton.Text = "Preview"
         Me.ProveToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.ProveToolStripButton.Visible = False
@@ -210,7 +210,7 @@ Partial Class FrmMain
         Me.FindToolStripButton.Image = CType(resources.GetObject("FindToolStripButton.Image"), System.Drawing.Image)
         Me.FindToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.FindToolStripButton.Name = "FindToolStripButton"
-        Me.FindToolStripButton.Size = New System.Drawing.Size(81, 58)
+        Me.FindToolStripButton.Size = New System.Drawing.Size(93, 60)
         Me.FindToolStripButton.Text = "Find"
         Me.FindToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -219,7 +219,7 @@ Partial Class FrmMain
         Me.TransferToolStripButton.Image = CType(resources.GetObject("TransferToolStripButton.Image"), System.Drawing.Image)
         Me.TransferToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TransferToolStripButton.Name = "TransferToolStripButton"
-        Me.TransferToolStripButton.Size = New System.Drawing.Size(81, 58)
+        Me.TransferToolStripButton.Size = New System.Drawing.Size(93, 60)
         Me.TransferToolStripButton.Text = "Sales"
         Me.TransferToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.TransferToolStripButton.Visible = False
@@ -229,7 +229,7 @@ Partial Class FrmMain
         Me.CloseToolStripButton.Image = CType(resources.GetObject("CloseToolStripButton.Image"), System.Drawing.Image)
         Me.CloseToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.CloseToolStripButton.Name = "CloseToolStripButton"
-        Me.CloseToolStripButton.Size = New System.Drawing.Size(81, 58)
+        Me.CloseToolStripButton.Size = New System.Drawing.Size(93, 60)
         Me.CloseToolStripButton.Text = "Close"
         Me.CloseToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -238,7 +238,7 @@ Partial Class FrmMain
         Me.AboutToolStripButton.Image = CType(resources.GetObject("AboutToolStripButton.Image"), System.Drawing.Image)
         Me.AboutToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.AboutToolStripButton.Name = "AboutToolStripButton"
-        Me.AboutToolStripButton.Size = New System.Drawing.Size(81, 58)
+        Me.AboutToolStripButton.Size = New System.Drawing.Size(93, 60)
         Me.AboutToolStripButton.Text = "About"
         Me.AboutToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -249,136 +249,136 @@ Partial Class FrmMain
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShopsToolStripMenuItem, Me.SuppliersToolStripMenuItem, Me.PurchaseOrdersToolStripMenuItem, Me.WarehouseAdjustmentsToolStripMenuItem, Me.ShopDeliveriesToolStripMenuItem, Me.SalesToolStripMenuItem, Me.ShopAdjustmentsToolStripMenuItem, Me.ShopTransfersToolStripMenuItem, Me.ReturnsToolStripMenuItem, Me.StockToolStripMenuItem, Me.ReportsToolStripMenuItem, Me.SettingsToolStripMenuItem, Me.LblSearch, Me.FindInput, Me.AllStockToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(7, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(2564, 39)
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
+        Me.MenuStrip1.Size = New System.Drawing.Size(2797, 43)
         Me.MenuStrip1.TabIndex = 20
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'ShopsToolStripMenuItem
         '
         Me.ShopsToolStripMenuItem.Name = "ShopsToolStripMenuItem"
-        Me.ShopsToolStripMenuItem.Size = New System.Drawing.Size(87, 35)
+        Me.ShopsToolStripMenuItem.Size = New System.Drawing.Size(100, 39)
         Me.ShopsToolStripMenuItem.Text = "Shops"
         '
         'SuppliersToolStripMenuItem
         '
         Me.SuppliersToolStripMenuItem.Name = "SuppliersToolStripMenuItem"
-        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(115, 35)
+        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(133, 39)
         Me.SuppliersToolStripMenuItem.Text = "Suppliers"
         '
         'PurchaseOrdersToolStripMenuItem
         '
         Me.PurchaseOrdersToolStripMenuItem.Name = "PurchaseOrdersToolStripMenuItem"
-        Me.PurchaseOrdersToolStripMenuItem.Size = New System.Drawing.Size(183, 35)
+        Me.PurchaseOrdersToolStripMenuItem.Size = New System.Drawing.Size(208, 39)
         Me.PurchaseOrdersToolStripMenuItem.Text = "Purchase Orders"
         '
         'WarehouseAdjustmentsToolStripMenuItem
         '
         Me.WarehouseAdjustmentsToolStripMenuItem.Name = "WarehouseAdjustmentsToolStripMenuItem"
-        Me.WarehouseAdjustmentsToolStripMenuItem.Size = New System.Drawing.Size(257, 35)
+        Me.WarehouseAdjustmentsToolStripMenuItem.Size = New System.Drawing.Size(294, 39)
         Me.WarehouseAdjustmentsToolStripMenuItem.Text = "Warehouse Adjustments"
         '
         'ShopDeliveriesToolStripMenuItem
         '
         Me.ShopDeliveriesToolStripMenuItem.Name = "ShopDeliveriesToolStripMenuItem"
-        Me.ShopDeliveriesToolStripMenuItem.Size = New System.Drawing.Size(173, 35)
+        Me.ShopDeliveriesToolStripMenuItem.Size = New System.Drawing.Size(201, 39)
         Me.ShopDeliveriesToolStripMenuItem.Text = "Shop Deliveries"
         '
         'SalesToolStripMenuItem
         '
         Me.SalesToolStripMenuItem.Name = "SalesToolStripMenuItem"
-        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(78, 35)
+        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(89, 39)
         Me.SalesToolStripMenuItem.Text = "Sales"
         '
         'ShopAdjustmentsToolStripMenuItem
         '
         Me.ShopAdjustmentsToolStripMenuItem.Name = "ShopAdjustmentsToolStripMenuItem"
-        Me.ShopAdjustmentsToolStripMenuItem.Size = New System.Drawing.Size(200, 35)
+        Me.ShopAdjustmentsToolStripMenuItem.Size = New System.Drawing.Size(230, 39)
         Me.ShopAdjustmentsToolStripMenuItem.Text = "Shop Adjustments"
         '
         'ShopTransfersToolStripMenuItem
         '
         Me.ShopTransfersToolStripMenuItem.Name = "ShopTransfersToolStripMenuItem"
-        Me.ShopTransfersToolStripMenuItem.Size = New System.Drawing.Size(166, 35)
+        Me.ShopTransfersToolStripMenuItem.Size = New System.Drawing.Size(191, 39)
         Me.ShopTransfersToolStripMenuItem.Text = "Shop Transfers"
         '
         'ReturnsToolStripMenuItem
         '
         Me.ReturnsToolStripMenuItem.Name = "ReturnsToolStripMenuItem"
-        Me.ReturnsToolStripMenuItem.Size = New System.Drawing.Size(101, 35)
+        Me.ReturnsToolStripMenuItem.Size = New System.Drawing.Size(115, 39)
         Me.ReturnsToolStripMenuItem.Text = "Returns"
         '
         'StockToolStripMenuItem
         '
         Me.StockToolStripMenuItem.Name = "StockToolStripMenuItem"
-        Me.StockToolStripMenuItem.Size = New System.Drawing.Size(155, 35)
+        Me.StockToolStripMenuItem.Size = New System.Drawing.Size(179, 39)
         Me.StockToolStripMenuItem.Text = "Current Stock"
         '
         'ReportsToolStripMenuItem
         '
         Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AllStockMovementsToolStripMenuItem, Me.DeliveriesByStockCodeToolStripMenuItem, Me.StockListByShopToolStripMenuItem, Me.BorehamwoodStockListToolStripMenuItem, Me.StockListByStockCodeToolStripMenuItem, Me.WarehouseStockListToolStripMenuItem, Me.TotalStockValuationToolStripMenuItem, Me.SalesHistoryToolStripMenuItem, Me.SalesAnalysisToolStripMenuItem})
         Me.ReportsToolStripMenuItem.Name = "ReportsToolStripMenuItem"
-        Me.ReportsToolStripMenuItem.Size = New System.Drawing.Size(101, 35)
+        Me.ReportsToolStripMenuItem.Size = New System.Drawing.Size(115, 39)
         Me.ReportsToolStripMenuItem.Text = "Reports"
         '
         'AllStockMovementsToolStripMenuItem
         '
         Me.AllStockMovementsToolStripMenuItem.Name = "AllStockMovementsToolStripMenuItem"
-        Me.AllStockMovementsToolStripMenuItem.Size = New System.Drawing.Size(357, 40)
+        Me.AllStockMovementsToolStripMenuItem.Size = New System.Drawing.Size(413, 44)
         Me.AllStockMovementsToolStripMenuItem.Text = "All Stock Movements"
         '
         'DeliveriesByStockCodeToolStripMenuItem
         '
         Me.DeliveriesByStockCodeToolStripMenuItem.Name = "DeliveriesByStockCodeToolStripMenuItem"
-        Me.DeliveriesByStockCodeToolStripMenuItem.Size = New System.Drawing.Size(357, 40)
+        Me.DeliveriesByStockCodeToolStripMenuItem.Size = New System.Drawing.Size(413, 44)
         Me.DeliveriesByStockCodeToolStripMenuItem.Text = "Deliveries by Stock Code"
         '
         'StockListByShopToolStripMenuItem
         '
         Me.StockListByShopToolStripMenuItem.Name = "StockListByShopToolStripMenuItem"
-        Me.StockListByShopToolStripMenuItem.Size = New System.Drawing.Size(357, 40)
+        Me.StockListByShopToolStripMenuItem.Size = New System.Drawing.Size(413, 44)
         Me.StockListByShopToolStripMenuItem.Text = "Stock List by Shop"
         '
         'BorehamwoodStockListToolStripMenuItem
         '
         Me.BorehamwoodStockListToolStripMenuItem.Name = "BorehamwoodStockListToolStripMenuItem"
-        Me.BorehamwoodStockListToolStripMenuItem.Size = New System.Drawing.Size(357, 40)
+        Me.BorehamwoodStockListToolStripMenuItem.Size = New System.Drawing.Size(413, 44)
         Me.BorehamwoodStockListToolStripMenuItem.Text = "Borehamwood Stock List"
         '
         'StockListByStockCodeToolStripMenuItem
         '
         Me.StockListByStockCodeToolStripMenuItem.Name = "StockListByStockCodeToolStripMenuItem"
-        Me.StockListByStockCodeToolStripMenuItem.Size = New System.Drawing.Size(357, 40)
+        Me.StockListByStockCodeToolStripMenuItem.Size = New System.Drawing.Size(413, 44)
         Me.StockListByStockCodeToolStripMenuItem.Text = "Stock List By StockCode"
         '
         'WarehouseStockListToolStripMenuItem
         '
         Me.WarehouseStockListToolStripMenuItem.Name = "WarehouseStockListToolStripMenuItem"
-        Me.WarehouseStockListToolStripMenuItem.Size = New System.Drawing.Size(357, 40)
+        Me.WarehouseStockListToolStripMenuItem.Size = New System.Drawing.Size(413, 44)
         Me.WarehouseStockListToolStripMenuItem.Text = "Warehouse Stock List"
         '
         'TotalStockValuationToolStripMenuItem
         '
         Me.TotalStockValuationToolStripMenuItem.Name = "TotalStockValuationToolStripMenuItem"
-        Me.TotalStockValuationToolStripMenuItem.Size = New System.Drawing.Size(357, 40)
+        Me.TotalStockValuationToolStripMenuItem.Size = New System.Drawing.Size(413, 44)
         Me.TotalStockValuationToolStripMenuItem.Text = "Total Stock Valuation"
         '
         'SalesHistoryToolStripMenuItem
         '
         Me.SalesHistoryToolStripMenuItem.Name = "SalesHistoryToolStripMenuItem"
-        Me.SalesHistoryToolStripMenuItem.Size = New System.Drawing.Size(357, 40)
+        Me.SalesHistoryToolStripMenuItem.Size = New System.Drawing.Size(413, 44)
         Me.SalesHistoryToolStripMenuItem.Text = "Sales History"
         '
         'SalesAnalysisToolStripMenuItem
         '
         Me.SalesAnalysisToolStripMenuItem.Name = "SalesAnalysisToolStripMenuItem"
-        Me.SalesAnalysisToolStripMenuItem.Size = New System.Drawing.Size(357, 40)
+        Me.SalesAnalysisToolStripMenuItem.Size = New System.Drawing.Size(413, 44)
         Me.SalesAnalysisToolStripMenuItem.Text = "Sales Analysis"
         '
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(105, 35)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(121, 39)
         Me.SettingsToolStripMenuItem.Text = "Settings"
         '
         'LblSearch
@@ -386,7 +386,7 @@ Partial Class FrmMain
         Me.LblSearch.Enabled = False
         Me.LblSearch.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.LblSearch.Name = "LblSearch"
-        Me.LblSearch.Size = New System.Drawing.Size(180, 35)
+        Me.LblSearch.Size = New System.Drawing.Size(196, 39)
         Me.LblSearch.Text = "Search Item:"
         '
         'FindInput
@@ -394,24 +394,24 @@ Partial Class FrmMain
         Me.FindInput.BackColor = System.Drawing.Color.Aqua
         Me.FindInput.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FindInput.Name = "FindInput"
-        Me.FindInput.Size = New System.Drawing.Size(180, 35)
+        Me.FindInput.Size = New System.Drawing.Size(196, 39)
         '
         'AllStockToolStripMenuItem
         '
         Me.AllStockToolStripMenuItem.Name = "AllStockToolStripMenuItem"
-        Me.AllStockToolStripMenuItem.Size = New System.Drawing.Size(110, 35)
+        Me.AllStockToolStripMenuItem.Size = New System.Drawing.Size(126, 39)
         Me.AllStockToolStripMenuItem.Text = "All Stock"
         '
         'FrmMain
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(2564, 1404)
+        Me.ClientSize = New System.Drawing.Size(2797, 1462)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.DgvRecords)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "FrmMain"
         Me.Text = " "
         Me.StatusStrip1.ResumeLayout(False)

@@ -10,1296 +10,12 @@
     using System.Globalization;
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
-
-    internal class ClsDatabase
+    
+    public class AClsShop : ClsUtils
     {
+        
     }
-    public class ClsUtils
-    {
-        // Global properties
-        // These are used by all objects
-        public bool SaveToDB { get; set; }
-        public bool UpdateToDB { get; set; }
-        public bool DeleteFromDB { get; set; }
-        public int Result { get; set; }
-        public int UserID { get; set; }
-        public string WarehouseRef { get; set; }
-        public string ShopRef { get; set; }
-        public string SupplierRef { get; set; }
-        public string StockCode { get; set; }
-        public int DeliveredQtyHangers { get; set; }
-        public int DeliveredQtyBoxes { get; set; }
-        public int DeliveredQtyGarments { get; set; }
-        public string AddressLine1 { get; set; }
-        public string AddressLine2 { get; set; }
-        public string AddressLine3 { get; set; }
-        public string AddressLine4 { get; set; }
-        public string PostCode { get; set; }
-        public string Telephone { get; set; }
-        public string ContactName { get; set; }
-        public string Fax { get; set; }
-        public string eMail { get; set; }
-        public string WebsiteAddress { get; set; }
-        public string Memo { get; set; }
-        public decimal VATAmount { get; set; }
-        public DateTime MovementDate { get; set; }
-        public string DeliveryType { get; set; }
-        public string Reference { get; set; }
-        public string SMovementType { get; set; }
-        public int Qty { get; set; }
-        public int TotalGainItems { get; set; }
-        public int TotalLossItems { get; set; }
-        public decimal Value { get; set; }
-        public static string GetConnString(int ID)
-        {
-            // Returns the correct Database connection string for the identity record.
-            if (ID == 1)
-            {
-                return @"Initial Catalog=FYPv2;Data Source=(local);Persist Security Info=False;Integrated Security=true;";
-            }
-            else if (ID == 2)
-            {
-                return @"Initial Catalog=FYPv2;Data Source=192.168.1.200;Persist Security Info=False;Integrated Security=false;User ID=FYPUser;Password=@35Adc@*K9z&QJ";
-            }
-            else if (ID == 3)
-            {
-                return @"Initial Catalog=master;Data Source=.\SQLEXPRESS;Persist Security Info=False;Integrated Security=true;";
-            }
-            else
-            {
-                return @"Initial Catalog=master;Data Source=192.168.1.200;Persist Security Info=False;Integrated Security=false;User ID=FYPUser;Password=@35Adc@*K9z&QJ";
-            }
-        }
-        public static DateTime GetSundayDate(DateTime DatePicked, int DateType)
-        {
-            // Gives the correct Sunday's Date depending on the function that is calling the function.
-            if (DateType == 1)
-            {
-                return DatePicked.AddDays(0 - DatePicked.DayOfWeek);
-            }
-            else
-            {
-                return DatePicked.AddDays(0 - DatePicked.DayOfWeek + 7);
-            }
-        }
-        public static string ChangeCase(string TextToConvert, int TextType)
-        {
-            if (TextType == 1)
-            {
-                return TextToConvert.ToUpper();
-            }
-            else if (TextType == 2)
-            {
-                return TextToConvert.ToLower();
-            }
-            else
-            {
-                TextInfo textInfo = new CultureInfo("en-GB", false).TextInfo;
-                return textInfo.ToTitleCase(TextToConvert);
-            }
-        }
-        // URL: https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
-        // User: Microsoft developers
-        public static bool IsValidEmail(string email)
-        {
-            if (string.IsNullOrWhiteSpace(email))
-                return false;
-            try
-            {
-                // Normalize the domain
-                email = Regex.Replace(email, @"(@)(.+)$", DomainMapper, RegexOptions.None, TimeSpan.FromMilliseconds(200));
-                // Examines the domain part of the email and normalizes it.
-                string DomainMapper(Match match)
-                {
-                    // Use IdnMapping class to convert Unicode domain names.
-                    var idn = new IdnMapping();
-                    // Pull out and process domain name (throws ArgumentException on invalid)
-                    var domainName = idn.GetAscii(match.Groups[2].Value);
-                    return match.Groups[1].Value + domainName;
-                }
-            }
-            catch (RegexMatchTimeoutException)
-            {
-                return false;
-            }
-            catch (ArgumentException)
-            {
-                return false;
-            }
-            try
-            {
-                return Regex.IsMatch(email,
-                    @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
-                    @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
-                    RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
-            }
-            catch (RegexMatchTimeoutException)
-            {
-                return false;
-            }
-        }
-    }
-    public class ClsEmployee : ClsUtils
-    {
-        // constructor for the class
-        public ClsEmployee()
-        {
-            SaveToDB = false;
-            UpdateToDB = false;
-            DeleteFromDB = false;
-        }
-        // de-constructor for the class
-        ~ClsEmployee()
-        {
-            SaveToDB = false;
-            UpdateToDB = false;
-            DeleteFromDB = false;
-        }
-        // properties for the class
-        public string PasswordEntered { get; set; }
-        private string PasswordHashed;
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string LoginCode { get; set; }
-        public int ProfileID { get; set; }
-        // methods for the class
-        public static string HashingSHA1(string ValueToHash)
-        {
-            // Create The Highest Hash Value
-            var sha1 = System.Security.Cryptography.SHA512.Create();
-            // Encode the string passed in to a hash (7-bit)
-            var inputValueToHash = Encoding.ASCII.GetBytes(ValueToHash);
-            // Create the hash based on the encoded value
-            var hashing = sha1.ComputeHash(inputValueToHash);
-            // destroy the cryptography when not needed
-            sha1.Dispose();
-            // create a new string
-            var stringbuilder = new StringBuilder();
-            for (var a = 0; a < hashing.Length; a++)
-            {
-                // add the computed hash to a string value
-                stringbuilder.Append(hashing[a].ToString("X2"));
-            }
-            return stringbuilder.ToString(); // return back to the calling function
-        }
-        public int GetAllUserTotal()
-        {
-            Result = 0;
-            try
-            {
-                using (SqlConnection conn = new SqlConnection())
-                {
-                    conn.ConnectionString = GetConnString(1);
-                    conn.Open();
-                    using (SqlCommand SelectCmd = new SqlCommand())
-                    {
-                        SelectCmd.Connection = conn;
-                        SelectCmd.CommandText = "SELECT COUNT(*) AS TotalRecords from tblEmployees";
-                        SelectCmd.CommandType = CommandType.Text;
-                        Result = (int)SelectCmd.ExecuteScalar();
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                return ex.Number;
-                throw;
-            }
-            return Result;
-        }
-        public int GetLoginUserID(string LoginName, string Password)
-        {
-            UserID = 0;
-            try
-            {
-                using (SqlConnection sqlConnection = new SqlConnection())
-                {
-                    sqlConnection.ConnectionString = GetConnString(1);
-                    sqlConnection.Open();
-                    using (SqlCommand sqlCommand = new SqlCommand())
-                    {
-                        sqlCommand.CommandText = "SELECT EmployeeID,Password,UserGuid from tblEmployees WHERE LoginCode = @LoginCode";
-                        sqlCommand.Connection = sqlConnection;
-                        sqlCommand.Parameters.AddWithValue("@LoginCode", LoginName);
-                        SqlDataReader dataReader = sqlCommand.ExecuteReader();
-                        while (dataReader.Read())
-                        {
-                            int dbUserId = Convert.ToInt32(dataReader["EmployeeID"]);
-                            string dbPassword = Convert.ToString(dataReader["Password"]);
-                            string dbUserGuid = Convert.ToString(dataReader["UserGuid"]);
-                            string PasswordHash = HashingSHA1(Password + dbUserGuid);
-                            if (dbPassword == PasswordHash)
-                            {
-                                UserID = dbUserId;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Incorrect Username and Password \nPlease try again", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                UserID = 0;
-                            }
-                        }
-                    }
-                    sqlConnection.Close();
-                }
-            }
-            catch (SqlException)
-            {
-                throw;
-            }
-            return UserID;
-        }
-        public bool SaveToEmployeeTable()
-        {
-            SaveToDB = false;
-            Guid usergiud = System.Guid.NewGuid();
-            PasswordHashed = HashingSHA1(PasswordEntered + usergiud.ToString());
-            try
-            {
-                using (SqlConnection conn = new SqlConnection())
-                {
-                    conn.ConnectionString = GetConnString(1);
-                    conn.Open();
-                    using (SqlCommand InsertCmd = new SqlCommand())
-                    {
-                        InsertCmd.Connection = conn;
-                        InsertCmd.CommandText = "INSERT INTO tblEmployees (FirstName, LastName, LoginCode, Password, ProfileID, UserGuid) VALUES (@FirstName, @LastName, @LoginCode, @Password, @ProfileID, @UserGuid)";
-                        InsertCmd.Parameters.AddWithValue("@FirstName", FirstName);
-                        InsertCmd.Parameters.AddWithValue("@LastName", LastName);
-                        InsertCmd.Parameters.AddWithValue("@LoginCode", LoginCode);
-                        InsertCmd.Parameters.AddWithValue("@Password", PasswordHashed);
-                        InsertCmd.Parameters.AddWithValue("@ProfileID", ProfileID);
-                        InsertCmd.Parameters.AddWithValue("@UserGuid", usergiud);
-                        Result = (int)InsertCmd.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                SaveToDB = false;
-                return SaveToDB;
-                throw;
-            }
-            if (Result == 1)
-                SaveToDB = true;
-            else
-                SaveToDB = false;
-            return SaveToDB;
-        }
-        public bool UpdateToEmployeeTable()
-        {
-            PasswordHashed = HashingSHA1(PasswordEntered);
-            UpdateToDB = false;
-            try
-            {
-
-            }
-            catch (SqlException ex)
-            {
-                UpdateToDB = false;
-                MessageBox.Show(ex.Message);
-                return UpdateToDB;
-                throw;
-            }
-            return UpdateToDB;
-        }
-        public bool DeleteEmployee()
-        {
-            try
-            {
-
-            }
-            catch (SqlException ex)
-            {
-                DeleteFromDB = false;
-                MessageBox.Show(ex.Message);
-                throw;
-            }
-            return DeleteFromDB;
-        }
-    }
-    public class ClsLogs : ClsUtils
-    {
-        public int LocationType { get; set; }
-        public string LocationRef { get; set; }
-        public string StringMovementType { get; set; }
-        public int MovementType { get; set; }
-        public decimal MovementValue { get; set; }
-        public int TransferReference { get; set; }
-        public bool SaveToStockMovementsTable()
-        {
-            SaveToDB = false;
-            try
-            {
-                using (SqlConnection conn = new SqlConnection())
-                {
-                    conn.ConnectionString = GetConnString(1);
-                    conn.Open();
-                    using (SqlCommand InsertCmd = new SqlCommand())
-                    {
-                        InsertCmd.Connection = conn;
-                        InsertCmd.CommandType = CommandType.Text;
-                        InsertCmd.CommandText = "INSERT INTO tblStockMovements (StockCode, LocationRef, LocationType, SupplierRef, MovementQtyHangers, MovementQtyBoxes, MovementQtyGarments, MovementType, MovementDate, MovementValue, MovementReference, TransferReference, CreatedBy, CreatedDate) VALUES (@StockCode, @LocationRef, @LocationType, @SupplierRef, @MovementQtyHangers, @MovementQtyBoxes, @MovementQtyGarments, @MovementType, @MovementDate, @MovementValue, @MovementReference, @TransferReference, @CreatedBy, @CreatedDate)";
-                        InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
-                        InsertCmd.Parameters.AddWithValue("@SupplierRef", SupplierRef);
-                        InsertCmd.Parameters.AddWithValue("@LocationRef", LocationRef);
-                        InsertCmd.Parameters.AddWithValue("@LocationType", LocationType);
-                        InsertCmd.Parameters.AddWithValue("@MovementQtyHangers", DeliveredQtyHangers);
-                        InsertCmd.Parameters.AddWithValue("@MovementQtyBoxes", DeliveredQtyBoxes);
-                        InsertCmd.Parameters.AddWithValue("@MovementQtyGarments", DeliveredQtyGarments);
-                        InsertCmd.Parameters.AddWithValue("@MovementType", MovementType);
-                        InsertCmd.Parameters.AddWithValue("@MovementDate", MovementDate);
-                        InsertCmd.Parameters.AddWithValue("@MovementValue", MovementValue);
-                        InsertCmd.Parameters.AddWithValue("@MovementReference", Reference);
-                        InsertCmd.Parameters.AddWithValue("@TransferReference", TransferReference);
-                        InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);
-                        InsertCmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
-                        Result = (int)InsertCmd.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                SaveToDB = false;
-                MessageBox.Show("Error in adding to database\n" + ex.Message);
-            }
-            if (Result != 1)
-                SaveToDB = false;
-            else
-                SaveToDB = true;
-            return SaveToDB;
-        }
-        public bool DeleteFromStockMovemmentsTable()
-        {
-            DeleteFromDB = false;
-            try
-            {
-                using (SqlConnection conn = new SqlConnection())
-                {
-                    conn.ConnectionString = GetConnString(1);
-                    conn.Open();
-                    using (SqlCommand DeleteCmd = new SqlCommand())
-                    {
-                        DeleteCmd.Connection = conn;
-                        DeleteCmd.CommandType = CommandType.Text;
-                        DeleteCmd.CommandText = "DELETE FROM tblStockMovements WHERE MovementType = @MovementType AND TransferReference = @TransferReference AND MovementDate = @MovementDate";
-                        DeleteCmd.Parameters.AddWithValue("@MovementType", MovementType);
-                        DeleteCmd.Parameters.AddWithValue("@TransferReference", TransferReference);
-                        DeleteCmd.Parameters.AddWithValue("@MovementDate", MovementDate);
-                        Result = (int)DeleteCmd.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                DeleteFromDB = false;
-                MessageBox.Show("Error in adding to database\n" + ex.Message);
-            }
-            if (Result != 1)
-                DeleteFromDB = false;
-            else
-                DeleteFromDB = true;
-            return DeleteFromDB;
-        }
-        public bool DeleteZeroQtyFromStockMovementsTable()
-        {
-            DeleteFromDB = false;
-            try
-            {
-                using (SqlConnection conn = new SqlConnection())
-                {
-                    conn.ConnectionString = GetConnString(1);
-                    conn.Open();
-                    using (SqlCommand DeleteCmd = new SqlCommand())
-                    {
-                        DeleteCmd.Connection = conn;
-                        DeleteCmd.CommandType = CommandType.Text;
-                        DeleteCmd.CommandText = "DELETE FROM tblStockMovements WHERE MovementType = @MovementType AND TransferReference = @TransferReference AND MovementReference = @MovementReference AND MovementDate = @MovementDate AND MovementQtyHangers = '0' AND MovementQtyBoxes = '0' AND MovementQtyGarments = '0' AND MovementValue = '0'";
-                        DeleteCmd.Parameters.AddWithValue("@MovementType", MovementType);
-                        DeleteCmd.Parameters.AddWithValue("@TransferReference", TransferReference);
-                        DeleteCmd.Parameters.AddWithValue("@MovementReference", Reference);
-                        DeleteCmd.Parameters.AddWithValue("@MovementDate", MovementDate);
-                        Result = (int)DeleteCmd.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                DeleteFromDB = false;
-                MessageBox.Show("Error in adding to database\n" + ex.Message);
-            }
-            if (Result != 1)
-                DeleteFromDB = false;
-            else
-                DeleteFromDB = true;
-            return DeleteFromDB;
-        }
-    }
-    public class ClsPurchaseOrder : ClsUtils
-    {
-        public int PurchaseOrderID { get; set; }
-        public ClsPurchaseOrder()
-        {
-            SaveToDB = false;
-            UpdateToDB = false;
-            DeleteFromDB = false;
-        }
-        ~ClsPurchaseOrder()
-        {
-            SaveToDB = false;
-            UpdateToDB = false;
-            DeleteFromDB = false;
-        }
-        public void LoadNewPurchaseOrder()
-        {
-            FrmPurchaseOrder oPurchaseOrder = new FrmPurchaseOrder
-            {
-                FormMode = "New",
-                UserID = UserID
-            };
-            oPurchaseOrder.ShowDialog();
-        }
-        public void LoadSelectedPurchaseOrder()
-        {
-            FrmPurchaseOrder oPurchaseOrder = new FrmPurchaseOrder
-            {
-                FormMode = "Old"
-            };
-            oPurchaseOrder.TxtOrderID.Text = PurchaseOrderID.ToString();
-            oPurchaseOrder.ShowDialog();
-        }
-    }
-    public class ClsPurchaseOrderHead : ClsPurchaseOrder
-    {
-        public int TotalGarments;
-        public int TotalHangers;
-        public int TotalBoxes;
-        public decimal NetAmount;
-        public decimal DeliveryCharge;
-        public decimal Commission;
-        public string SeasonName;
-        public decimal TotalAmount;
-        public string Shipper;
-        public string ShipperInvoice;
-        public string SupplierInvoice;
-        public string OurRef;
-        public ClsPurchaseOrderHead()
-        {
-            SaveToDB = false;
-            UpdateToDB = false;
-            DeleteFromDB = false;
-        }
-        ~ClsPurchaseOrderHead()
-        {
-            SaveToDB = false;
-            UpdateToDB = false;
-            DeleteFromDB = false;
-        }
-        public bool SaveToPurchaseOrderHeadToDB()
-        {
-            SaveToDB = false;
-            try
-            {
-                using (SqlConnection sqlConnection = new SqlConnection())
-                {
-                    sqlConnection.ConnectionString = GetConnString(1);
-                    sqlConnection.Open();
-                    using (SqlCommand sqlCommand = new SqlCommand())
-                    {
-                        sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "INSERT INTO tblPurchaseOrders (OurRef, SupplierRef, LocationRef, TotalGarments, TotalBoxes, TotalHangers, NetAmount, DeliveryCharge, Commission, VATAmount, TotalAmount, DeliveryDate, DeliveryType, SeasonName, Notes, InvoiceNumber, ShipperName, ShipperInvoice, CreatedBy, CreatedDate) VALUES (@OurRef, @SupplierRef, @LocationRef, @TotalGarments, @TotalBoxes, @TotalHangers, @NetAmount, @DeliveryCharge, @Commission, @VATAmount, @TotalAmount, @DeliveryDate, @DeliveryType, @SeasonName, @Notes, @InvoiceNumber, @ShipperName, @ShipperInvoice, @CreatedBy, @CreatedDate)";
-                        sqlCommand.Parameters.AddWithValue("@OurRef", OurRef);
-                        sqlCommand.Parameters.AddWithValue("@SupplierRef", SupplierRef);
-                        sqlCommand.Parameters.AddWithValue("@LocationRef", WarehouseRef);
-                        sqlCommand.Parameters.AddWithValue("@TotalGarments", TotalGarments);
-                        sqlCommand.Parameters.AddWithValue("@TotalBoxes", TotalBoxes);
-                        sqlCommand.Parameters.AddWithValue("@TotalHangers", TotalHangers);
-                        sqlCommand.Parameters.AddWithValue("@NetAmount", NetAmount);
-                        sqlCommand.Parameters.AddWithValue("@Commission", Commission);
-                        sqlCommand.Parameters.AddWithValue("@DeliveryCharge", DeliveryCharge);
-                        sqlCommand.Parameters.AddWithValue("@VATAmount", VATAmount);
-                        sqlCommand.Parameters.AddWithValue("@TotalAmount", TotalAmount);
-                        sqlCommand.Parameters.AddWithValue("@DeliveryDate", MovementDate);
-                        sqlCommand.Parameters.AddWithValue("@DeliveryType", DeliveryType);
-                        sqlCommand.Parameters.AddWithValue("@SeasonName", SeasonName);
-                        sqlCommand.Parameters.AddWithValue("@Notes", Memo);
-                        sqlCommand.Parameters.AddWithValue("@InvoiceNumber", SupplierInvoice);
-                        sqlCommand.Parameters.AddWithValue("@ShipperName", Shipper);
-                        sqlCommand.Parameters.AddWithValue("@ShipperInvoice", ShipperInvoice);
-                        sqlCommand.Parameters.AddWithValue("@CreatedBy", UserID);
-                        sqlCommand.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
-                        Result = (int)sqlCommand.ExecuteNonQuery();
-                    }
-                }
-                if (Result != 1)
-                {
-                    SaveToDB = false;
-                }
-                else
-                {
-                    SaveToDB = true;
-                }
-            }
-            catch (SqlException ex)
-            {
-                SaveToDB = false;
-                MessageBox.Show("Error in adding to database\n" + ex.Message);
-            }
-            return SaveToDB;
-        }
-        public bool UpdateToPurchaseOrderHeadInDB()
-        {
-            UpdateToDB = false;
-            try
-            {
-                using (SqlConnection sqlConnection = new SqlConnection())
-                {
-                    sqlConnection.ConnectionString = GetConnString(1);
-                    sqlConnection.Open();
-                    using (SqlCommand sqlCommand = new SqlCommand())
-                    {
-                        sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "UPDATE tblPurchaseOrders SET OurRef = @OurRef, SupplierRef = @SupplierRef, LocationRef = @LocationRef, TotalItems = @TotalItems, TotalBoxes = @TotalBoxes, TotalLoose = @TotalLoose, NetAmount = @NetAmount, DeliveryCharge = @DeliveryCharge, Commission = @Commission, VATAmount = @VATAmount, TotalAmount = @TotalAmount, DeliveryDate = @DeliveryDate, SeasonName = @SeasonName, Notes = @Notes, InvoiceNumber = @InvoiceNumber, ShipperName = @ShipperName, ShipperInvoice = @ShipperInvoice WHERE PurchaseOrderID = @PurchaseOrderID";
-                        sqlCommand.Parameters.AddWithValue("@OurRef", OurRef);
-                        sqlCommand.Parameters.AddWithValue("@SupplierRef", SupplierRef);
-                        sqlCommand.Parameters.AddWithValue("@LocationRef", WarehouseRef);
-                        sqlCommand.Parameters.AddWithValue("@TotalItems", TotalGarments);
-                        sqlCommand.Parameters.AddWithValue("@TotalBoxes", TotalBoxes);
-                        sqlCommand.Parameters.AddWithValue("@TotalLoose", TotalHangers);
-                        sqlCommand.Parameters.AddWithValue("@NetAmount", NetAmount);
-                        sqlCommand.Parameters.AddWithValue("@Commission", Commission);
-                        sqlCommand.Parameters.AddWithValue("@DeliveryCharge", DeliveryCharge);
-                        sqlCommand.Parameters.AddWithValue("@VATAmount", VATAmount);
-                        sqlCommand.Parameters.AddWithValue("@TotalAmount", TotalAmount);
-                        sqlCommand.Parameters.AddWithValue("@DeliveryDate", MovementDate);
-                        sqlCommand.Parameters.AddWithValue("@SeasonName", SeasonName);
-                        sqlCommand.Parameters.AddWithValue("@Notes", Memo);
-                        sqlCommand.Parameters.AddWithValue("@InvoiceNumber", SupplierInvoice);
-                        sqlCommand.Parameters.AddWithValue("@ShipperName", Shipper);
-                        sqlCommand.Parameters.AddWithValue("@ShipperInvoice", ShipperInvoice);
-                        sqlCommand.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderID);
-                        Result = (int)sqlCommand.ExecuteNonQuery();
-                    }
-                }
-                if (Result != 1)
-                {
-                    UpdateToDB = false;
-                }
-                else
-                {
-                    UpdateToDB = true;
-                }
-            }
-            catch (SqlException ex)
-            {
-                UpdateToDB = false;
-                MessageBox.Show("Error in adding to database\n" + ex.Message);
-            }
-            return UpdateToDB;
-        }
-        public bool DeletePurchaseOrderHeadFromDB()
-        {
-            using (SqlConnection conn = new SqlConnection())
-            {
-                conn.ConnectionString = GetConnString(1);
-                conn.Open();
-                using (SqlCommand DeleteCmd = new SqlCommand())
-                {
-                    DeleteCmd.Connection = conn;
-                    DeleteCmd.CommandText = "DELETE FROM tblPurchaseOrders where PurchaseOrderID = @PurchaseOrderID";
-                    DeleteCmd.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderID);
-                    DeleteCmd.ExecuteNonQuery();
-                }
-            }
-            return DeleteFromDB;
-        }
-        public int GetLastPurchaseOrderHead()
-        {
-            Result = 0;
-            using (SqlConnection conn = new SqlConnection())
-            {
-                conn.ConnectionString = GetConnString(1);
-                conn.Open();
-                using (SqlCommand SelectCmd = new SqlCommand())
-                {
-                    SelectCmd.Connection = conn;
-                    SelectCmd.CommandText = "SELECT COUNT(*) AS MaxRef FROM tblPurchaseOrders";
-                    Result = (int)SelectCmd.ExecuteScalar();
-                }
-            }
-            return Result;
-        }
-    }
-    public class ClsPurchaseOrderLine : ClsPurchaseOrder
-    {
-        public decimal LineAmount { get; set; }
-        public ClsPurchaseOrderLine()
-        {
-            SaveToDB = false;
-            UpdateToDB = false;
-            DeleteFromDB = false;
-        }
-
-        ~ClsPurchaseOrderLine()
-        {
-            SaveToDB = false;
-            UpdateToDB = false;
-            DeleteFromDB = false;
-        }
-        public bool SaveToPurchaseOrderLinetbl()
-        {
-            SaveToDB = false;
-            try
-            {
-                using (SqlConnection sqlConnection = new SqlConnection())
-                {
-                    sqlConnection.ConnectionString = GetConnString(1);
-                    sqlConnection.Open();
-                    using (SqlCommand sqlCommand = new SqlCommand())
-                    {
-                        sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "INSERT INTO tblPurchaseOrderLines (PurchaseOrderID, StockCode, DeliveredQtyGarments, DeliveredQtyBoxes, DeliveredQtyHangers, LineAmount) VALUES (@PurchaseOrderID, @StockCode, @DeliveredQtyGarments, @DeliveredQtyBoxes, @DeliveredQtyHangers, @LineAmount)";
-                        sqlCommand.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderID);
-                        sqlCommand.Parameters.AddWithValue("@StockCode", StockCode);
-                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyGarments", DeliveredQtyGarments);
-                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyBoxes", DeliveredQtyBoxes);
-                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyHangers", DeliveredQtyHangers);
-                        sqlCommand.Parameters.AddWithValue("@LineAmount", LineAmount);
-                        Result = (int)sqlCommand.ExecuteNonQuery();
-                    }
-                }
-                if (Result != 1)
-                {
-                    SaveToDB = false;
-                }
-                else
-                {
-                    SaveToDB = true;
-                }
-            }
-            catch (SqlException ex)
-            {
-                SaveToDB = false;
-                MessageBox.Show("Error in adding to database\n" + ex.Message);
-            }
-            return SaveToDB;
-        }
-        public bool UpdateToPurchaseOrderLinetbl()
-        {
-            UpdateToDB = false;
-            try
-            {
-                using (SqlConnection sqlConnection = new SqlConnection())
-                {
-                    sqlConnection.ConnectionString = GetConnString(1);
-                    sqlConnection.Open();
-                    using (SqlCommand sqlCommand = new SqlCommand())
-                    {
-                        sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "UPDATE tblPurchaseOrderLines SET DeliveredQtyGarments = @DeliveredQtyGarments, DeliveredQtyBoxes = @DeliveredQtyBoxes, DeliveredQtyHangers = @DeliveredQtyHangers, LineAmount = @LineAmount WHERE PurchaseOrderID = @PurchaseOrderID AND StockCode = @StockCode";
-                        sqlCommand.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderID);
-                        sqlCommand.Parameters.AddWithValue("@StockCode", StockCode);
-                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyGarments", DeliveredQtyGarments);
-                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyBoxes", DeliveredQtyBoxes);
-                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyHangers", DeliveredQtyHangers);
-                        sqlCommand.Parameters.AddWithValue("@LineAmount", LineAmount);
-                        Result = (int)sqlCommand.ExecuteNonQuery();
-                    }
-                }
-                if (Result != 1)
-                {
-                    UpdateToDB = false;
-                }
-                else
-                {
-                    UpdateToDB = true;
-                }
-            }
-            catch (SqlException ex)
-            {
-                UpdateToDB = false;
-                MessageBox.Show("Error in adding to database\n" + ex.Message);
-            }
-            return UpdateToDB;
-        }
-        public bool DeletePurchaseOrderLineRecord()
-        {
-            using (SqlConnection conn = new SqlConnection())
-            {
-                conn.ConnectionString = GetConnString(1);
-                conn.Open();
-                using (SqlCommand DeleteCmd = new SqlCommand())
-                {
-                    DeleteCmd.Connection = conn;
-                    DeleteCmd.CommandText = "DELETE FROM tblPurchaseOrders where PurchaseOrderID = @PurchaseOrderID";
-                    DeleteCmd.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderID);
-                    DeleteCmd.ExecuteNonQuery();
-                }
-            }
-            return DeleteFromDB;
-        }
-    }
-    public class ClsSeason : ClsUtils
-    {
-        // properties for the class
-        // started 02/01/2020
-        // completed 02/01/2020
-        public int SeasonID { get; set; }
-        public string SeasonName { get; set; }
-        // constructor for the class
-        public ClsSeason()
-        {
-            SaveToDB = false;
-            UpdateToDB = false;
-            DeleteFromDB = false;
-        }
-        // deconstructor for the class
-        ~ClsSeason()
-        {
-            SaveToDB = false;
-            UpdateToDB = false;
-            DeleteFromDB = false;
-        }
-        public void LoadNewRecord()
-        {
-            FrmSeason season = new FrmSeason
-            {
-                FormMode = "New",
-                Text = "New Season"
-            };
-            season.ShowDialog();
-        }
-        public void LoadSelectedSeason()
-        {
-            FrmSeason season = new FrmSeason()
-            {
-                FormMode = "Old",
-                Text = "Update Season",
-                SeasonID = SeasonID
-            };
-            season.ShowDialog();
-        }
-        public bool SaveSeasonRecordToDB()
-        {
-            // Save the Season name to the database
-            using (SqlConnection conn = new SqlConnection())
-            {
-                try
-                {
-                    conn.ConnectionString = GetConnString(1);
-                    conn.Open();
-                    using (SqlCommand InsertCmd = new SqlCommand())
-                    {
-                        InsertCmd.Connection = conn;
-                        InsertCmd.CommandType = CommandType.Text;
-                        InsertCmd.CommandText = "INSERT INTO tblSeasons (SeasonName) VALUES (@SeasonName)";
-                        InsertCmd.Parameters.AddWithValue("@SeasonName", SeasonName);
-                        Result = (int)InsertCmd.ExecuteNonQuery();
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show("Unable to Open connection to Database\nBecause : " + ex.Message.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
-                }
-            }
-            if (Result != 1)
-            {
-                SaveToDB = false;
-            }
-            else
-            {
-                SaveToDB = true;
-            }
-            return SaveToDB;
-        }
-        public bool UpdateSeasonRecordInDB()
-        {
-            // Update the season name against the Season ID
-            UpdateToDB = true;
-            try
-            {
-                using (SqlConnection conn = new SqlConnection())
-                {
-                    conn.ConnectionString = GetConnString(1);
-                    conn.Open();
-                    using (SqlCommand UpdateCmd = new SqlCommand())
-                    {
-                        UpdateCmd.Connection = conn;
-                        UpdateCmd.CommandType = CommandType.Text;
-                        UpdateCmd.CommandText = "UPDATE tblSeasons SET SeasonName = @SeasonName WHERE SeasonID = @SeasonID";
-                        UpdateCmd.Parameters.AddWithValue("@SeasonID", SeasonID);
-                        UpdateCmd.Parameters.AddWithValue("@SeasonName", SeasonName);
-                        Result = (int)UpdateCmd.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                throw;
-            }
-            if (Result != 1)
-                UpdateToDB = false;
-            else
-                UpdateToDB = true;
-            return UpdateToDB;
-        }
-        public bool DeleteSeasonRecordFromDB()
-        {
-            // delete the selected record from the database
-            DeleteFromDB = false;
-            try
-            {
-                using (SqlConnection conn = new SqlConnection())
-                {
-                    conn.ConnectionString = GetConnString(1);
-                    conn.Open();
-                    using (SqlCommand DeleteCmd = new SqlCommand())
-                    {
-                        DeleteCmd.Connection = conn;
-                        DeleteCmd.CommandType = CommandType.Text;
-                        DeleteCmd.CommandText = "DELETE FROM tblSeasons WHERE SeasonID = @SeasonID";
-                        DeleteCmd.Parameters.AddWithValue("@SeasonID", SeasonID);
-                        DeleteFromDB = Convert.ToBoolean(DeleteCmd.ExecuteNonQuery());
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                DeleteFromDB = false;
-                throw;
-            }
-            return DeleteFromDB;
-        }
-    }
-    public class ClsSettings : ClsUtils
-    {
-        public string CompanyName;
-        public string VATRegistration { get; set; }
-        public decimal VATRate;
-        public int ID;
-        public void LoadSettings()
-        {
-            Result = CheckDB();
-            if (Result == 1)
-            {
-                LoadOldForm();
-            }
-            else
-            {
-                LoadNewForm();
-            }
-        }
-        private void LoadOldForm()
-        {
-            FrmSetting settings = new FrmSetting
-            {
-                FormMode = "Old"
-            };
-            settings.ShowDialog();
-        }
-        private void LoadNewForm()
-        {
-            FrmSetting settings = new FrmSetting
-            {
-                FormMode = "New"
-            };
-            settings.ShowDialog();
-        }
-
-        public bool SaveSettings()
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection())
-                {
-                    conn.ConnectionString = GetConnString(1);
-                    try
-                    {
-                        using (SqlCommand InsertCmd = new SqlCommand())
-                        {
-                            InsertCmd.Connection = conn;
-                            InsertCmd.Connection.Open();
-                            InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblCompanyDetails (CompanyName, Address1, Address2, Address3, Address4, PostCode, Telephone, Fax, VATRegistrationNo, Email, Website, VATRate) VALUES (@CompanyName, @Address1, @Address2, @Address3, @Address4, @PostCode, @Telephone, @Fax, @VATRegistrationNo, @Email, @Website, @VATRate)";
-                            InsertCmd.Parameters.AddWithValue("@CompanyName", CompanyName);
-                            InsertCmd.Parameters.AddWithValue("@Address1", AddressLine1);
-                            InsertCmd.Parameters.AddWithValue("@Address2", AddressLine2);
-                            InsertCmd.Parameters.AddWithValue("@Address3", AddressLine3);
-                            InsertCmd.Parameters.AddWithValue("@Address4", AddressLine4);
-                            InsertCmd.Parameters.AddWithValue("@PostCode", PostCode);
-                            InsertCmd.Parameters.AddWithValue("@Telephone", Telephone);
-                            InsertCmd.Parameters.AddWithValue("@Fax", Fax);
-                            InsertCmd.Parameters.AddWithValue("@VATRegistrationNo", VATRegistration);
-                            InsertCmd.Parameters.AddWithValue("@Email", eMail);
-                            InsertCmd.Parameters.AddWithValue("@Website", WebsiteAddress);
-                            InsertCmd.Parameters.AddWithValue("@VATRate", VATRate);
-                            Result = (int)InsertCmd.ExecuteNonQuery();
-                        }
-                    }
-                    catch (SqlException ex)
-                    {
-                        SaveToDB = false;
-                        MessageBox.Show("Error in adding to database\n" + ex.Message);
-                        throw;
-                    }
-                    finally
-                    {
-                        conn.Close();
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                SaveToDB = false;
-                MessageBox.Show("Error in adding to database\n" + ex.Message);
-                throw;
-            }
-            if (Result == 1)
-                SaveToDB = true;
-            else
-                SaveToDB = false;
-            return SaveToDB;
-        }
-        public bool UpdateSettings()
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection())
-                {
-                    conn.ConnectionString = GetConnString(1);
-                    try
-                    {
-                        using (SqlCommand UpdateCmd = new SqlCommand())
-                        {
-                            UpdateCmd.Connection = conn;
-                            UpdateCmd.Connection.Open();
-                            UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblCompanyDetails SET CompanyName =  @CompanyName, Address1 = @Address1, Address2 = @Address2, Address3 = @Address3, Address4 = @Address4, PostCode = @PostCode, Telephone = @Telephone, Fax = @Fax, VATRegistrationNo = @VATRegistrationNo, Email = @Email, Website = @Website, VATRate = @VATRate WHERE CompanyName = @CompanyName";
-
-                            UpdateCmd.Parameters.AddWithValue("@CompanyName", CompanyName);
-                            UpdateCmd.Parameters.AddWithValue("@Address1", AddressLine1);
-                            UpdateCmd.Parameters.AddWithValue("@Address2", AddressLine2);
-                            UpdateCmd.Parameters.AddWithValue("@Address3", AddressLine3);
-                            UpdateCmd.Parameters.AddWithValue("@Address4", AddressLine4);
-                            UpdateCmd.Parameters.AddWithValue("@PostCode", PostCode);
-                            UpdateCmd.Parameters.AddWithValue("@Telephone", Telephone);
-                            UpdateCmd.Parameters.AddWithValue("@Fax", Fax);
-                            UpdateCmd.Parameters.AddWithValue("@VATRegistrationNo", VATRegistration);
-                            UpdateCmd.Parameters.AddWithValue("@Email", eMail);
-                            UpdateCmd.Parameters.AddWithValue("@Website", WebsiteAddress);
-                            UpdateCmd.Parameters.AddWithValue("@VATRate", VATRate);
-                            Result = (int)UpdateCmd.ExecuteNonQuery();
-                        }
-                    }
-                    catch (SqlException ex)
-                    {
-                        MessageBox.Show("Error in adding to database\n" + ex.Message);
-                        throw;
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Error in adding to database\n" + ex.Message);
-                throw;
-            }
-            if (Result == 1)
-                UpdateToDB = true;
-            else
-                UpdateToDB = false;
-            return UpdateToDB;
-        }
-        public string Backup()
-        {
-            string UniqueIdenity;
-            string time;
-            string day;
-            string month;
-            string year;
-            time = DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
-            day = DateTime.Now.Day.ToString();
-            month = DateTime.Now.Month.ToString();
-            year = DateTime.Now.Year.ToString();
-            UniqueIdenity = year + month + day + time;
-            using (SqlConnection conn = new SqlConnection())
-            {
-                conn.ConnectionString = GetConnString(3);
-                using (SqlCommand BackupCmd = new SqlCommand())
-                {
-                    BackupCmd.Connection = conn;
-                    BackupCmd.Connection.Open();
-                    BackupCmd.CommandText = "Backup database " + Reference + " to disk = 'C:\\DBBackup\\" + Reference + "_" + UniqueIdenity + ".bak'";
-                    BackupCmd.ExecuteNonQuery();
-                }
-            }
-            return "Backup Completed";
-        }
-        public string Restore()
-        {
-            using (SqlConnection conn = new SqlConnection())
-            {
-                conn.ConnectionString = GetConnString(3);
-                conn.Open();
-                // Set Database to single mode
-                using (SqlCommand RestoreCMD = new SqlCommand())
-                {
-                    RestoreCMD.Connection = conn;
-                    RestoreCMD.CommandText = "ALTER DATABASE " + Reference + " SET SINGLE_USER WITH ROLLBACK IMMEDIATE";
-                    RestoreCMD.ExecuteNonQuery();
-                }
-                // Restore The Database
-                using (SqlCommand RestoreCMD = new SqlCommand())
-                {
-                    RestoreCMD.Connection = conn;
-                    RestoreCMD.CommandText = "Restore Database " + Reference + " FROM DISK ='C:\\DBBackup\\" + AddressLine1 + ".bak'";
-
-                    RestoreCMD.ExecuteNonQuery();
-                }
-                // Change Database back to multi user
-                using (SqlCommand RestoreCMD = new SqlCommand())
-                {
-                    RestoreCMD.Connection = conn;
-                    RestoreCMD.CommandText = "ALTER DATABASE " + Reference + " SET Multi_User";
-
-                    RestoreCMD.ExecuteNonQuery();
-                }
-            }
-            return "Restore to the file name Required!";
-        }
-        public int CheckDB()
-        {
-            using (SqlConnection conn = new SqlConnection())
-            {
-                conn.ConnectionString = GetConnString(1);
-                conn.Open();
-                using (SqlCommand selectCmd = new SqlCommand())
-                {
-                    selectCmd.Connection = conn;
-                    selectCmd.CommandText = "Select COUNT(*) from tblCompanyDetails";
-                    return (int)selectCmd.ExecuteScalar();
-                }
-            }
-        }
-    }
-    public class ClsShop : ClsUtils
-    {
-        // properties for the class
-        // started 02/01/2020
-        // completed 03/01/2020
-        public string ShopName;
-        public string ShopType;
-        // constructor for the class
-        public ClsShop()
-        {
-            SaveToDB = false;
-            UpdateToDB = false;
-            DeleteFromDB = false;
-        }
-        // deconstructor for the class
-        ~ClsShop()
-        {
-            SaveToDB = false;
-            UpdateToDB = false;
-            DeleteFromDB = false;
-        }
-        // Methods for the class
-        public void LoadNewRecord()
-        {
-            // loading the new form and setting the properties for the new form
-            FrmShop shop = new FrmShop
-            {
-                UserID = UserID,
-                FormMode = "New"
-            };
-            shop.ShowDialog();
-        }
-        public void LoadSelectedShop()
-        {
-            // loading selected record into the shop form
-            FrmShop shop = new FrmShop
-            {
-                FormMode = "Old",
-                UserID = UserID,
-            };
-            shop.TxtShopRef.Text = ShopRef;
-            shop.ShowDialog();
-        }
-        public bool SaveShopRecordToDB()
-        {
-            SaveToDB = false;
-            try
-            {
-                using (SqlConnection conn = new SqlConnection())
-                {
-                    conn.ConnectionString = GetConnString(1);
-                    conn.Open();
-                    using (SqlCommand InsertCmd = new SqlCommand())
-                    {
-                        InsertCmd.Connection = conn;
-                        InsertCmd.CommandType = CommandType.Text;
-                        InsertCmd.CommandText = "INSERT INTO tblShops (ShopRef, ShopName, Address1, Address2, Address3, Address4, PostCode, Telephone, Fax, eMail, ShopType, Memo, ContactName, CreatedBy, CreatedDate) VALUES (@ShopRef, @ShopName, @Address1, @Address2, @Address3, @Address4, @PostCode, @Telephone, @Fax, @eMail, @ShopType, @Memo, @ContactName, @CreatedBy, @CreatedDate)";
-                        InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
-                        InsertCmd.Parameters.AddWithValue("@ShopName", ShopName);
-                        InsertCmd.Parameters.AddWithValue("@Address1", AddressLine1);
-                        InsertCmd.Parameters.AddWithValue("@Address2", AddressLine2);
-                        InsertCmd.Parameters.AddWithValue("@Address3", AddressLine3);
-                        InsertCmd.Parameters.AddWithValue("@Address4", AddressLine4);
-                        InsertCmd.Parameters.AddWithValue("@PostCode", PostCode);
-                        InsertCmd.Parameters.AddWithValue("@ContactName", ContactName);
-                        InsertCmd.Parameters.AddWithValue("@Telephone", Telephone);
-                        InsertCmd.Parameters.AddWithValue("@Fax", Fax);
-                        InsertCmd.Parameters.AddWithValue("@eMail", eMail);
-                        InsertCmd.Parameters.AddWithValue("@ShopType", ShopType);
-                        InsertCmd.Parameters.AddWithValue("@Memo", Memo);
-                        InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);
-                        InsertCmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
-                        Result = (int)InsertCmd.ExecuteNonQuery();
-                    }
-                }
-                if (Result != 1)
-                    SaveToDB = false;
-                else
-                    SaveToDB = true;
-            }
-            catch (SqlException ex)
-            {
-                SaveToDB = false;
-                MessageBox.Show("Error in adding to database\n" + ex.Message);
-            }
-            return SaveToDB;
-        }
-        public bool UpdateShopRecordInDB()
-        {
-            UpdateToDB = false;
-            try
-            {
-                using (SqlConnection conn = new SqlConnection())
-                {
-                    conn.ConnectionString = GetConnString(1);
-                    conn.Open();
-                    using (SqlCommand UpdateCmd = new SqlCommand())
-                    {
-                        UpdateCmd.Connection = conn;
-                        UpdateCmd.CommandType = CommandType.Text;
-                        UpdateCmd.CommandText = "UPDATE tblShops SET ShopName = @ShopName, Address1 = @Address1, Address2 = @Address2, Address3 = @Address3, Address4 = @Address4, PostCode = @PostCode, ContactName = @ContactName, Telephone = Telephone, Fax = @Fax, eMail = @eMail, Memo = @Memo, ShopType = @ShopType WHERE ShopRef = @ShopRef";
-                        UpdateCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
-                        UpdateCmd.Parameters.AddWithValue("@ShopName", ShopName);
-                        UpdateCmd.Parameters.AddWithValue("@Address1", AddressLine1);
-                        UpdateCmd.Parameters.AddWithValue("@Address2", AddressLine2);
-                        UpdateCmd.Parameters.AddWithValue("@Address3", AddressLine3);
-                        UpdateCmd.Parameters.AddWithValue("@Address4", AddressLine4);
-                        UpdateCmd.Parameters.AddWithValue("@PostCode", PostCode);
-                        UpdateCmd.Parameters.AddWithValue("@ContactName", ContactName);
-                        UpdateCmd.Parameters.AddWithValue("@Telephone", Telephone);
-                        UpdateCmd.Parameters.AddWithValue("@Fax", Fax);
-                        UpdateCmd.Parameters.AddWithValue("@eMail", eMail);
-                        UpdateCmd.Parameters.AddWithValue("@ShopType", ShopType);
-                        UpdateCmd.Parameters.AddWithValue("@Memo", Memo);
-                        Result = (int)UpdateCmd.ExecuteNonQuery();
-                    }
-                }
-                if (Result != 1)
-                    UpdateToDB = false;
-                else
-                    UpdateToDB = true;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                UpdateToDB = false;
-                throw;
-            }
-            return UpdateToDB;
-        }
-        public bool DeleteShopRecordFromDB()
-        {
-            // Delete the selected Shop Record from the database
-            DeleteFromDB = false;
-            try
-            {
-                using (SqlConnection conn = new SqlConnection())
-                {
-                    conn.ConnectionString = GetConnString(1);
-                    conn.Open();
-                    using (SqlCommand DeleteCmd = new SqlCommand())
-                    {
-                        DeleteCmd.Connection = conn;
-                        DeleteCmd.CommandType = CommandType.Text;
-                        DeleteCmd.CommandText = "DELETE FROM tblShops WHERE ShopRef = @ShopRef";
-                        DeleteCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
-                        Result = (int)DeleteCmd.ExecuteNonQuery();
-                    }
-                }
-                if (Result != 1)
-                    DeleteFromDB = false;
-                else
-                    DeleteFromDB = true;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                DeleteFromDB = false;
-                throw;
-            }
-            return DeleteFromDB;
-        }
-        public string GetShopNameFromDB()
-        {
-            // Get Shop name from the selected shop reference in all shop functions of the application.
-            try
-            {
-                using (SqlConnection sqlConnection = new SqlConnection())
-                {
-                    sqlConnection.ConnectionString = GetConnString(1);
-                    sqlConnection.Open();
-                    using (SqlCommand sqlCommand = new SqlCommand())
-                    {
-                        sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "SELECT ShopName FROM tblShops WHERE ShopRef = @ShopRef";
-                        sqlCommand.Parameters.AddWithValue("@ShopRef", ShopRef);
-                        ShopName = (string)sqlCommand.ExecuteScalar();
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                throw;
-            }
-            return ShopName;
-        }
-        public int TotalShopTransactionRecords()
-        {
-            // To get the total number of transactions before deleting the shop record from the database
-            Result = 0;
-            try
-            {
-                using (SqlConnection conn = new SqlConnection())
-                {
-                    conn.ConnectionString = GetConnString(1);
-                    conn.Open();
-                    using (SqlCommand SelectCmd = new SqlCommand())
-                    {
-                        SelectCmd.Connection = conn;
-                        SelectCmd.CommandType = CommandType.Text;
-                        SelectCmd.CommandText = "SELECT * FROM tblStockMovements WHERE LocationRef = @LocationRef";
-                        SelectCmd.Parameters.AddWithValue("@LocationRef", ShopRef);
-                        Result = (int)SelectCmd.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                throw;
-            }
-            return Result;
-        }
-    }
-    public class ClsShopAdjustment : ClsUtils
+    public class AClsShopAdjustment : ClsUtils
     {
         public int ID { get; set; }
 
@@ -1339,7 +55,7 @@
             return Result;
         }
     }
-    public class ClsShopAdjustmentHead : ClsShopAdjustment
+    public class AClsShopAdjustmentHead : ClsShopAdjustment
     {
         public bool SaveShopAdjustmentHead()
         {
@@ -1470,7 +186,7 @@
             return DeleteFromDB;
         }
     }
-    public class ClsShopAdjustmentLine : ClsShopAdjustment
+    public class AClsShopAdjustmentLine : ClsShopAdjustment
     {
         public bool SaveShopAdjustmentLine()
         {
@@ -1599,7 +315,7 @@
             return DeleteFromDB;
         }
     }
-    public class ClsShopDelivery : ClsUtils
+    public class AClsShopDelivery : ClsUtils
     {
         public int ShopDelID;
         public void LoadNewForm()
@@ -1661,7 +377,7 @@
             return Result;
         }
     }
-    public class ClsShopDeliveryHead : ClsShopDelivery
+    public class AClsShopDeliveryHead : ClsShopDelivery
     {
 
         public string ShopName;
@@ -1812,7 +528,7 @@
             return DeleteFromDB;
         }
     }
-    public class ClsShopDeliveryLine : ClsShopDelivery
+    public class AClsShopDeliveryLine : ClsShopDelivery
     {
         public bool SaveShopDeliveryLine()
         {
@@ -1944,7 +660,7 @@
             return DeleteFromDB;
         }
     }
-    public class ClsShopReturn : ClsUtils
+    public class AClsShopReturn : ClsUtils
     {
         public int ShopReturnID { get; set; }
         public void LoadNewForm()
@@ -1998,7 +714,7 @@
             return Result;
         }
     }
-    class ClsShopReturnHead : ClsShopReturn
+    class AClsShopReturnHead : ClsShopReturn
     {
         public int TotalItems;
         public bool SaveShopReturnHead()
@@ -2127,7 +843,7 @@
             return DeleteFromDB;
         }
     }
-    class ClsShopReturnLine : ClsShopReturn
+    class AClsShopReturnLine : ClsShopReturn
     {
         public bool SaveShopReturnLine()
         {
@@ -2252,7 +968,7 @@
             return DeleteFromDB;
         }
     }
-    public class ClsShopSale : ClsUtils
+    public class AClsShopSale : ClsUtils
     {
         public int SalesID { get; set; }
         public void LoadNewForm()
@@ -2306,7 +1022,7 @@
             return Result;
         }
     }
-    public class ClsShopSaleHead : ClsShopSale
+    public class AClsShopSaleHead : ClsShopSale
     {
         public string ShopName;
         public decimal VATRate;
@@ -2441,7 +1157,7 @@
             return DeleteFromDB;
         }
     }
-    public class ClsShopSaleLine : ClsShopSale
+    public class AClsShopSaleLine : ClsShopSale
     {
         public int CurrentQty;
         public int TotalItems;
@@ -2614,7 +1330,7 @@
             return DeleteFromDB;
         }
     }
-    public class ClsShopTransfer : ClsUtils
+    public class AClsShopTransfer : ClsUtils
     {
         public int ShopTransferID { get; set; }
         public void LoadNewForm()
@@ -2668,7 +1384,7 @@
             return Result;
         }
     }
-    public class ClsShopTransferHead : ClsShopTransfer
+    public class AClsShopTransferHead : ClsShopTransfer
     {
         public string ToShopRef;
         public string ShopName;
@@ -2810,7 +1526,7 @@
             return DeleteFromDB;
         }
     }
-    public class ClsShopTransferLine : ClsShopTransfer
+    public class AClsShopTransferLine : ClsShopTransfer
     {
         public int ID;
         public int CurrQty;
@@ -2932,7 +1648,7 @@
             return DeleteFromDB;
         }
     }
-    public class ClsStock : ClsUtils
+    public class AClsStock : ClsUtils
     {
         public string SeasonName;
         public bool DeadCode;
@@ -3429,7 +2145,7 @@
             return ValueToPassBack;
         }
     }
-    public class ClsSupplier : ClsUtils
+    public class AClsSupplier : ClsUtils
     {
         // properties for the class
         public string SupplierName { get; set; }
@@ -3646,7 +2362,7 @@
             return Result;
         }
     }
-    public class ClsWarehouse : ClsUtils
+    public class AClsWarehouse : ClsUtils
     {
         // properties of the class
         // started 01/01/2020
@@ -3871,7 +2587,7 @@
             return Result;
         }
     }
-    public class ClsWarehouseAdjustment : ClsUtils
+    public class AClsWarehouseAdjustment : ClsUtils
     {
         public int WarehouseAdjustmentID { get; set; }
         public void LoadNewWarehouseAdjustment()
@@ -3928,7 +2644,7 @@
             return Result;
         }
     }
-    public class ClsWarehouseAdjustmentHead : ClsWarehouseAdjustment
+    public class AClsWarehouseAdjustmentHead : ClsWarehouseAdjustment
     {
         public bool SaveWarehouseAdjustmentHeadToDB()
         {
@@ -4071,7 +2787,7 @@
             return DeleteFromDB;
         }
     }
-    public class ClsWarehouseAdjustmentLine : ClsWarehouseAdjustment
+    public class AClsWarehouseAdjustmentLine : ClsWarehouseAdjustment
     {
         public bool SaveWarehouseAdjustmentLineToDB()
         {
@@ -4208,7 +2924,7 @@
             return DeleteFromDB;
         }
     }
-    public class ClsWarehouseReturn : ClsUtils
+    public class AClsWarehouseReturn : ClsUtils
     {
         public int WarehouseReturnID { get; set; }
         public void LoadNewForm()
@@ -4262,7 +2978,7 @@
             return Result;
         }
     }
-    public class ClsWarehouseReturnHead : ClsWarehouseReturn
+    public class AClsWarehouseReturnHead : ClsWarehouseReturn
     {
         public int TotalItems;
 
@@ -4405,7 +3121,7 @@
             return DeleteFromDB;
         }
     }
-    public class ClsWarehouseReturnLine : ClsWarehouseReturn
+    public class AClsWarehouseReturnLine : ClsWarehouseReturn
     {
         public int ReturnQty;
         public int ReturnValue;
@@ -4547,7 +3263,7 @@
             return DeleteFromDB;
         }
     }
-    public class ClsWarehouseTransfer : ClsUtils
+    public class AClsWarehouseTransfer : ClsUtils
     {
         public int WarehouseTransferID;
         public string ToWarehouseRef { get; set; }
@@ -4609,7 +3325,7 @@
             return Result;
         }
     }
-    public class ClsWarehouseTransferHead : ClsWarehouseTransfer
+    public class AClsWarehouseTransferHead : ClsWarehouseTransfer
     {
         public bool SaveWarehouseTransferHead()
         {
@@ -4749,7 +3465,7 @@
             return DeleteFromDB;
         }
     }
-    public class ClsWarehouseTransferLine : ClsWarehouseTransfer
+    public class AClsWarehouseTransferLine : ClsWarehouseTransfer
     {
         public int CurrQtyGarments;
         public int CurrQtyBoxes;

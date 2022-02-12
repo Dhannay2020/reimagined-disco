@@ -56,27 +56,13 @@
         }
 
         private void txtWWW_Leave(object sender, EventArgs e)
-        {
+        {           
             if (txtWWW.TextLength != 0)
             {
-                // https://stackoverflow.com/questions/3228984/a-better-way-to-validate-url-in-c-sharp-than-try-catch 
-                // User https://stackoverflow.com/users/626273/stema
-                string regular = @"^(ht|f|sf)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$";
-                string regular123 = @"^(www.)[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$";
-
-                string myString = txtWWW.Text.Trim();
-                if (Regex.IsMatch(myString, regular))
-                {
-                    MessageBox.Show("It is valid url  " + myString);
-                }
-                else if (Regex.IsMatch(myString, regular123))
-                {
-                    MessageBox.Show("Valid url with www. " + myString);
-                }
+                if (ClsUtils.IsValidWebAddress(txtWWW.Text) == "Valid")
+                    txtWWW.Text = ClsUtils.ChangeCase(txtWWW.Text, 2);
                 else
-                {
-                    MessageBox.Show("InValid URL  " + myString);
-                }
+                { txtWWW.Text = "Please Try Again"; }
             }
         }
 
