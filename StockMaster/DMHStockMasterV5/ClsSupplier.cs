@@ -1,55 +1,52 @@
 ﻿namespace DMHStockMasterV5
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
 
-    public class ClsShop : ClsUtils
+    public class ClsSupplier : ClsUtils
     {
         // properties for the class
-        // started 02/01/2020
-        // completed 03/01/2020
-        public string ShopName;
-        public string ShopType;
+        public string SupplierName { get; set; }
         // constructor for the class
-        public ClsShop()
+        public ClsSupplier()
         {
             SaveToDB = false;
             UpdateToDB = false;
             DeleteFromDB = false;
         }
         // deconstructor for the class
-        ~ClsShop()
+        ~ClsSupplier()
         {
             SaveToDB = false;
             UpdateToDB = false;
             DeleteFromDB = false;
         }
-        // Methods for the class
         public void LoadNewRecord()
         {
-            // loading the new form and setting the properties for the new form
-            FrmShop shop = new FrmShop
+            FrmSupplier supplier = new FrmSupplier
             {
-                UserID = UserID,
-                FormMode = "New"
+                FormMode = "New",
+                UserID = UserID
             };
-            shop.ShowDialog();
+            supplier.ShowDialog();
         }
-        public void LoadSelectedShop()
+        public void LoadSelectedSupplier()
         {
-            // loading selected record into the shop form
-            FrmShop shop = new FrmShop
+            FrmSupplier supplier = new FrmSupplier
             {
-                FormMode = "Old",
-                UserID = UserID,
+                FormMode = "Old"
             };
-            shop.TxtShopRef.Text = ShopRef;
-            shop.ShowDialog();
+            supplier.TxtSupplierRef.Text = SupplierRef;
+            supplier.ShowDialog();
         }
-        public bool SaveShopRecordToDB()
+        public bool SaveSupplierRecordToDB()
         {
-            SaveToDB = false;
+            // save supplier to database
             try
             {
                 using (SqlConnection conn = new SqlConnection())
@@ -60,9 +57,9 @@
                     {
                         InsertCmd.Connection = conn;
                         InsertCmd.CommandType = CommandType.Text;
-                        InsertCmd.CommandText = "INSERT INTO tblShops (ShopRef, ShopName, Address1, Address2, Address3, Address4, PostCode, Telephone, Fax, eMail, ShopType, Memo, ContactName, CreatedBy, CreatedDate) VALUES (@ShopRef, @ShopName, @Address1, @Address2, @Address3, @Address4, @PostCode, @Telephone, @Fax, @eMail, @ShopType, @Memo, @ContactName, @CreatedBy, @CreatedDate)";
-                        InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
-                        InsertCmd.Parameters.AddWithValue("@ShopName", ShopName);
+                        InsertCmd.CommandText = "INSERT INTO tblSuppliers (SupplierRef, SupplierName, Address1, Address2, Address3, Address4, PostCode, ContactName, Telephone, Fax, eMail, Memo, WebSite, CreatedBy, CreatedDate) VALUES (@SupplierRef, @SupplierName, @Address1, @Address2, @Address3, @Address4, @PostCode, @ContactName, @Telephone, @Fax, @eMail, @Memo, @Website, @CreatedBy, @CreatedDate)";
+                        InsertCmd.Parameters.AddWithValue("@SupplierRef", SupplierRef);
+                        InsertCmd.Parameters.AddWithValue("@SupplierName", SupplierName);
                         InsertCmd.Parameters.AddWithValue("@Address1", AddressLine1);
                         InsertCmd.Parameters.AddWithValue("@Address2", AddressLine2);
                         InsertCmd.Parameters.AddWithValue("@Address3", AddressLine3);
@@ -72,17 +69,21 @@
                         InsertCmd.Parameters.AddWithValue("@Telephone", Telephone);
                         InsertCmd.Parameters.AddWithValue("@Fax", Fax);
                         InsertCmd.Parameters.AddWithValue("@eMail", eMail);
-                        InsertCmd.Parameters.AddWithValue("@ShopType", ShopType);
                         InsertCmd.Parameters.AddWithValue("@Memo", Memo);
+                        InsertCmd.Parameters.AddWithValue("@WebSite", WebsiteAddress);
                         InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);
                         InsertCmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
                         Result = (int)InsertCmd.ExecuteNonQuery();
                     }
                 }
                 if (Result != 1)
+                {
                     SaveToDB = false;
+                }
                 else
+                {
                     SaveToDB = true;
+                }
             }
             catch (SqlException ex)
             {
@@ -91,9 +92,9 @@
             }
             return SaveToDB;
         }
-        public bool UpdateShopRecordInDB()
+        public bool UpdateSupplierRecordInDB()
         {
-            UpdateToDB = false;
+            // update supplier in database
             try
             {
                 using (SqlConnection conn = new SqlConnection())
@@ -104,40 +105,42 @@
                     {
                         UpdateCmd.Connection = conn;
                         UpdateCmd.CommandType = CommandType.Text;
-                        UpdateCmd.CommandText = "UPDATE tblShops SET ShopName = @ShopName, Address1 = @Address1, Address2 = @Address2, Address3 = @Address3, Address4 = @Address4, PostCode = @PostCode, ContactName = @ContactName, Telephone = Telephone, Fax = @Fax, eMail = @eMail, Memo = @Memo, ShopType = @ShopType WHERE ShopRef = @ShopRef";
-                        UpdateCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
-                        UpdateCmd.Parameters.AddWithValue("@ShopName", ShopName);
+                        UpdateCmd.CommandText = "UPDATE tblSuppliers SET SupplierName = @SupplierName, Address1 = @Address1, Address2 = @Address2, Address3 = @Address3, Address4 = @Address4, PostCode = @PostCode, ContactName = @ContactName, Telephone = @Telephone, Fax = @Fax, eMail = @eMail, Memo = @Memo, WebSite = @WebSite WHERE SupplierRef = @SupplierRef";
+                        UpdateCmd.Parameters.AddWithValue("@SupplierRef", SupplierRef);
+                        UpdateCmd.Parameters.AddWithValue("@SupplierName", SupplierName);
                         UpdateCmd.Parameters.AddWithValue("@Address1", AddressLine1);
-                        UpdateCmd.Parameters.AddWithValue("@Address2", AddressLine2);
-                        UpdateCmd.Parameters.AddWithValue("@Address3", AddressLine3);
-                        UpdateCmd.Parameters.AddWithValue("@Address4", AddressLine4);
+                        UpdateCmd.Parameters.AddWithValue("@Address2", AddressLine1);
+                        UpdateCmd.Parameters.AddWithValue("@Address3", AddressLine1);
+                        UpdateCmd.Parameters.AddWithValue("@Address4", AddressLine1);
                         UpdateCmd.Parameters.AddWithValue("@PostCode", PostCode);
                         UpdateCmd.Parameters.AddWithValue("@ContactName", ContactName);
                         UpdateCmd.Parameters.AddWithValue("@Telephone", Telephone);
                         UpdateCmd.Parameters.AddWithValue("@Fax", Fax);
                         UpdateCmd.Parameters.AddWithValue("@eMail", eMail);
-                        UpdateCmd.Parameters.AddWithValue("@ShopType", ShopType);
                         UpdateCmd.Parameters.AddWithValue("@Memo", Memo);
+                        UpdateCmd.Parameters.AddWithValue("@WebSite", WebsiteAddress);
                         Result = (int)UpdateCmd.ExecuteNonQuery();
                     }
                 }
                 if (Result != 1)
+                {
                     UpdateToDB = false;
+                }
                 else
+                {
                     UpdateToDB = true;
+                }
             }
             catch (SqlException ex)
             {
-                //MessageBox.Show(ex.Message);
-                UpdateToDB = false;
+               // MessageBox.Show(ex.Message);
                 throw;
             }
             return UpdateToDB;
         }
-        public bool DeleteShopRecordFromDB()
+        public bool DeleteSupplierRecordFromDB()
         {
-            // Delete the selected Shop Record from the database
-            DeleteFromDB = false;
+            // Delete supplier from database
             try
             {
                 using (SqlConnection conn = new SqlConnection())
@@ -148,27 +151,30 @@
                     {
                         DeleteCmd.Connection = conn;
                         DeleteCmd.CommandType = CommandType.Text;
-                        DeleteCmd.CommandText = "DELETE FROM tblShops WHERE ShopRef = @ShopRef";
-                        DeleteCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
+                        DeleteCmd.CommandText = "DELETE FROM tblSuppliers where SupplierRef = @SupplierRef";
+                        DeleteCmd.Parameters.AddWithValue("@SupplierRef", SupplierRef);
                         Result = (int)DeleteCmd.ExecuteNonQuery();
                     }
                 }
-                if (Result != 1)
-                    DeleteFromDB = false;
-                else
+                if (Result == 1)
+                {
                     DeleteFromDB = true;
+                }
+                else
+                {
+                    DeleteFromDB = false;
+                }
             }
             catch (SqlException ex)
             {
-              //  MessageBox.Show(ex.Message);
-                DeleteFromDB = false;
+               // MessageBox.Show(ex.Message);
                 throw;
             }
             return DeleteFromDB;
         }
-        public string GetShopNameFromDB()
+        public string GetSupplierNameFromDB()
         {
-            // Get Shop name from the selected shop reference in all shop functions of the application.
+            // Get the supplier name for a selected supplier reference
             try
             {
                 using (SqlConnection sqlConnection = new SqlConnection())
@@ -178,20 +184,20 @@
                     using (SqlCommand sqlCommand = new SqlCommand())
                     {
                         sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "SELECT ShopName FROM tblShops WHERE ShopRef = @ShopRef";
-                        sqlCommand.Parameters.AddWithValue("@ShopRef", ShopRef);
-                        ShopName = (string)sqlCommand.ExecuteScalar();
+                        sqlCommand.CommandText = "SELECT SupplierName FROM tblSuppliers WHERE SupplierRef = @SupplierRef";
+                        sqlCommand.Parameters.AddWithValue("@SupplierRef", SupplierRef);
+                        SupplierName = (string)sqlCommand.ExecuteScalar();
                     }
                 }
             }
             catch (SqlException ex)
             {
-               // MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
                 throw;
             }
-            return ShopName;
+            return SupplierName;
         }
-        public int TotalShopTransactionRecords()
+        public int TotalSupplierTransactionRecords()
         {
             // To get the total number of transactions before deleting the shop record from the database
             Result = 0;
@@ -205,8 +211,8 @@
                     {
                         SelectCmd.Connection = conn;
                         SelectCmd.CommandType = CommandType.Text;
-                        SelectCmd.CommandText = "SELECT * FROM tblStockMovements WHERE LocationRef = @LocationRef";
-                        SelectCmd.Parameters.AddWithValue("@LocationRef", ShopRef);
+                        SelectCmd.CommandText = "SELECT * FROM tblStockMovements WHERE SupplierRef = @SupplierRef";
+                        SelectCmd.Parameters.AddWithValue("@SupplierRef", SupplierRef);
                         Result = (int)SelectCmd.ExecuteNonQuery();
                     }
                 }

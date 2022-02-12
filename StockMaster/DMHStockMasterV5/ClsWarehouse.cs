@@ -1,54 +1,61 @@
 ﻿namespace DMHStockMasterV5
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
 
-    public class ClsShop : ClsUtils
+    public class ClsWarehouse : ClsUtils
     {
-        // properties for the class
-        // started 02/01/2020
-        // completed 03/01/2020
-        public string ShopName;
-        public string ShopType;
+        // properties of the class
+        // started 01/01/2020
+        // Completed 02/01/2020 
+        public string WarehouseName;
+        public string WarehouseType;
         // constructor for the class
-        public ClsShop()
+        public ClsWarehouse()
         {
             SaveToDB = false;
             UpdateToDB = false;
             DeleteFromDB = false;
         }
         // deconstructor for the class
-        ~ClsShop()
+        ~ClsWarehouse()
         {
             SaveToDB = false;
             UpdateToDB = false;
             DeleteFromDB = false;
+            WarehouseName = "";
+            WarehouseType = "";
         }
-        // Methods for the class
+        // methods for the class
         public void LoadNewRecord()
         {
-            // loading the new form and setting the properties for the new form
-            FrmShop shop = new FrmShop
+            // loading the new form and setting the properties of the form
+            FrmWarehouse warehouse = new FrmWarehouse
             {
                 UserID = UserID,
                 FormMode = "New"
             };
-            shop.ShowDialog();
+            warehouse.ShowDialog();
         }
-        public void LoadSelectedShop()
+        public void LoadSelectedWarehouse()
         {
-            // loading selected record into the shop form
-            FrmShop shop = new FrmShop
+            // loading a selected record into the form
+            FrmWarehouse warehouse = new FrmWarehouse
             {
                 FormMode = "Old",
-                UserID = UserID,
+                UserID = UserID
             };
-            shop.TxtShopRef.Text = ShopRef;
-            shop.ShowDialog();
+            warehouse.TxtWarehouseRef.Text = WarehouseRef;
+            warehouse.ShowDialog();
         }
-        public bool SaveShopRecordToDB()
+        public bool SaveWarehouseRecordToDB()
         {
+            // Saving the entered data into the database
             SaveToDB = false;
             try
             {
@@ -60,9 +67,9 @@
                     {
                         InsertCmd.Connection = conn;
                         InsertCmd.CommandType = CommandType.Text;
-                        InsertCmd.CommandText = "INSERT INTO tblShops (ShopRef, ShopName, Address1, Address2, Address3, Address4, PostCode, Telephone, Fax, eMail, ShopType, Memo, ContactName, CreatedBy, CreatedDate) VALUES (@ShopRef, @ShopName, @Address1, @Address2, @Address3, @Address4, @PostCode, @Telephone, @Fax, @eMail, @ShopType, @Memo, @ContactName, @CreatedBy, @CreatedDate)";
-                        InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
-                        InsertCmd.Parameters.AddWithValue("@ShopName", ShopName);
+                        InsertCmd.CommandText = "INSERT INTO tblWarehouses (WarehouseRef, WarehouseName, Address1, Address2, Address3, Address4 ,PostCode, ContactName, Telephone, WebSite, Fax, eMail, WarehouseType, Memo, CreatedBy, CreatedDate) VALUES (@WarehouseRef, @WarehouseName, @Address1, @Address2, @Address3, @Address4 , @PostCode, @ContactName, @Telephone, @WebSite, @Fax, @eMail, @WarehouseType, @Memo, @CreatedBy, @CreatedDate)";
+                        InsertCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
+                        InsertCmd.Parameters.AddWithValue("@WarehouseName", WarehouseName);
                         InsertCmd.Parameters.AddWithValue("@Address1", AddressLine1);
                         InsertCmd.Parameters.AddWithValue("@Address2", AddressLine2);
                         InsertCmd.Parameters.AddWithValue("@Address3", AddressLine3);
@@ -70,9 +77,10 @@
                         InsertCmd.Parameters.AddWithValue("@PostCode", PostCode);
                         InsertCmd.Parameters.AddWithValue("@ContactName", ContactName);
                         InsertCmd.Parameters.AddWithValue("@Telephone", Telephone);
+                        InsertCmd.Parameters.AddWithValue("@WebSite", WebsiteAddress);
                         InsertCmd.Parameters.AddWithValue("@Fax", Fax);
                         InsertCmd.Parameters.AddWithValue("@eMail", eMail);
-                        InsertCmd.Parameters.AddWithValue("@ShopType", ShopType);
+                        InsertCmd.Parameters.AddWithValue("@WarehouseType", WarehouseType);
                         InsertCmd.Parameters.AddWithValue("@Memo", Memo);
                         InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);
                         InsertCmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
@@ -80,20 +88,25 @@
                     }
                 }
                 if (Result != 1)
+                {
                     SaveToDB = false;
+                }
                 else
+                {
                     SaveToDB = true;
+                }
             }
             catch (SqlException ex)
             {
                 SaveToDB = false;
-               // MessageBox.Show("Error in adding to database\n" + ex.Message);
+                //MessageBox.Show("Error in adding to database\n" + ex.Message);
             }
             return SaveToDB;
         }
-        public bool UpdateShopRecordInDB()
+        public bool UpdateWarehouseRecordInDB()
         {
-            UpdateToDB = false;
+            // Updating selected warehouse record in the database
+            UpdateToDB = true;
             try
             {
                 using (SqlConnection conn = new SqlConnection())
@@ -104,39 +117,35 @@
                     {
                         UpdateCmd.Connection = conn;
                         UpdateCmd.CommandType = CommandType.Text;
-                        UpdateCmd.CommandText = "UPDATE tblShops SET ShopName = @ShopName, Address1 = @Address1, Address2 = @Address2, Address3 = @Address3, Address4 = @Address4, PostCode = @PostCode, ContactName = @ContactName, Telephone = Telephone, Fax = @Fax, eMail = @eMail, Memo = @Memo, ShopType = @ShopType WHERE ShopRef = @ShopRef";
-                        UpdateCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
-                        UpdateCmd.Parameters.AddWithValue("@ShopName", ShopName);
+                        UpdateCmd.CommandText = "UPDATE tblWarehouses SET WarehouseName = @WarehouseName, Address1 = @Address1, Address2 = @Address2, Address3 = @Address3, Address4 = @Address4, PostCode = @PostCode, ContactName = @ContactName, Telephone = Telephone, WebSite = @WebSite, Fax = @Fax, eMail = @eMail, Memo = @Memo, WarehouseType = @WarehouseType WHERE WarehouseRef = @WarehouseRef";
+                        UpdateCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
+                        UpdateCmd.Parameters.AddWithValue("@WarehouseName", WarehouseName);
                         UpdateCmd.Parameters.AddWithValue("@Address1", AddressLine1);
-                        UpdateCmd.Parameters.AddWithValue("@Address2", AddressLine2);
-                        UpdateCmd.Parameters.AddWithValue("@Address3", AddressLine3);
-                        UpdateCmd.Parameters.AddWithValue("@Address4", AddressLine4);
+                        UpdateCmd.Parameters.AddWithValue("@Address2", AddressLine1);
+                        UpdateCmd.Parameters.AddWithValue("@Address3", AddressLine1);
+                        UpdateCmd.Parameters.AddWithValue("@Address4", AddressLine1);
                         UpdateCmd.Parameters.AddWithValue("@PostCode", PostCode);
                         UpdateCmd.Parameters.AddWithValue("@ContactName", ContactName);
                         UpdateCmd.Parameters.AddWithValue("@Telephone", Telephone);
+                        UpdateCmd.Parameters.AddWithValue("@WebSite", WebsiteAddress);
                         UpdateCmd.Parameters.AddWithValue("@Fax", Fax);
                         UpdateCmd.Parameters.AddWithValue("@eMail", eMail);
-                        UpdateCmd.Parameters.AddWithValue("@ShopType", ShopType);
+                        UpdateCmd.Parameters.AddWithValue("@WarehouseType", WarehouseType);
                         UpdateCmd.Parameters.AddWithValue("@Memo", Memo);
-                        Result = (int)UpdateCmd.ExecuteNonQuery();
+                        UpdateCmd.ExecuteNonQuery();
                     }
                 }
-                if (Result != 1)
-                    UpdateToDB = false;
-                else
-                    UpdateToDB = true;
             }
             catch (SqlException ex)
             {
-                //MessageBox.Show(ex.Message);
-                UpdateToDB = false;
+               // MessageBox.Show(ex.Message);
                 throw;
             }
             return UpdateToDB;
         }
-        public bool DeleteShopRecordFromDB()
+        public bool DeleteWarehouseRecordFromDB()
         {
-            // Delete the selected Shop Record from the database
+            // delete the warehouse record from the database
             DeleteFromDB = false;
             try
             {
@@ -148,40 +157,18 @@
                     {
                         DeleteCmd.Connection = conn;
                         DeleteCmd.CommandType = CommandType.Text;
-                        DeleteCmd.CommandText = "DELETE FROM tblShops WHERE ShopRef = @ShopRef";
-                        DeleteCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
+                        DeleteCmd.CommandText = "DELETE FROM tblWarehouses where WarehouseRef = @WarehouseRef";
+                        DeleteCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
                         Result = (int)DeleteCmd.ExecuteNonQuery();
                     }
                 }
-                if (Result != 1)
-                    DeleteFromDB = false;
-                else
-                    DeleteFromDB = true;
-            }
-            catch (SqlException ex)
-            {
-              //  MessageBox.Show(ex.Message);
-                DeleteFromDB = false;
-                throw;
-            }
-            return DeleteFromDB;
-        }
-        public string GetShopNameFromDB()
-        {
-            // Get Shop name from the selected shop reference in all shop functions of the application.
-            try
-            {
-                using (SqlConnection sqlConnection = new SqlConnection())
+                if (Result == 1)
                 {
-                    sqlConnection.ConnectionString = GetConnString(1);
-                    sqlConnection.Open();
-                    using (SqlCommand sqlCommand = new SqlCommand())
-                    {
-                        sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "SELECT ShopName FROM tblShops WHERE ShopRef = @ShopRef";
-                        sqlCommand.Parameters.AddWithValue("@ShopRef", ShopRef);
-                        ShopName = (string)sqlCommand.ExecuteScalar();
-                    }
+                    DeleteFromDB = true;
+                }
+                else
+                {
+                    DeleteFromDB = false;
                 }
             }
             catch (SqlException ex)
@@ -189,12 +176,11 @@
                // MessageBox.Show(ex.Message);
                 throw;
             }
-            return ShopName;
+            return DeleteFromDB;
         }
-        public int TotalShopTransactionRecords()
+        public string GetWarehouseNameFromDB()
         {
-            // To get the total number of transactions before deleting the shop record from the database
-            Result = 0;
+            // getting the name of a specific warehouse from the database
             try
             {
                 using (SqlConnection conn = new SqlConnection())
@@ -205,15 +191,43 @@
                     {
                         SelectCmd.Connection = conn;
                         SelectCmd.CommandType = CommandType.Text;
-                        SelectCmd.CommandText = "SELECT * FROM tblStockMovements WHERE LocationRef = @LocationRef";
-                        SelectCmd.Parameters.AddWithValue("@LocationRef", ShopRef);
-                        Result = (int)SelectCmd.ExecuteNonQuery();
+                        SelectCmd.CommandText = "SELECT WarehouseName FROM tblWarehouses WHERE WarehouseRef = @WarehouseRef";
+                        SelectCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
+                        WarehouseName = (string)SelectCmd.ExecuteScalar();
                     }
                 }
             }
             catch (SqlException ex)
             {
                // MessageBox.Show(ex.Message);
+                throw;
+            }
+            return WarehouseName;
+        }
+        public int TotalWarehouseTransactionRecords()
+        {
+            // to check to see if warehouse can be deleted from the database
+            Result = 0; // setting the inital value to be passed back if nothing is returned
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using (SqlCommand SelectCmd = new SqlCommand())
+                    {
+                        SelectCmd.Connection = conn;
+                        SelectCmd.CommandText = "SELECT COUNT(*) AS TotalRecords FROM tblStockMovements WHERE LocationRef = @LocationRef";
+                        SelectCmd.CommandType = CommandType.Text;
+                        SelectCmd.Parameters.AddWithValue("@LocationRef", WarehouseRef);
+                        Result = (int)SelectCmd.ExecuteScalar();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+               // MessageBox.Show(ex.Message);
+                Result = 0;
                 throw;
             }
             return Result;

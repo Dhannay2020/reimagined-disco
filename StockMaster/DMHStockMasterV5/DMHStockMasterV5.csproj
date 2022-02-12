@@ -47,14 +47,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClsDatabase.cs" />
     <Compile Include="ClsEmployee.cs" />
     <Compile Include="ClsLog.cs" />
     <Compile Include="ClsPurchaseOrder.cs" />
     <Compile Include="ClsSeason.cs" />
     <Compile Include="ClsSetting.cs" />
     <Compile Include="ClsShop.cs" />
+    <Compile Include="ClsShopAdjustment.cs" />
+    <Compile Include="ClsShopDelivery.cs" />
+    <Compile Include="ClsShopReturn.cs" />
+    <Compile Include="ClsShopSale.cs" />
+    <Compile Include="ClsShopTransfer.cs" />
+    <Compile Include="ClsStock.cs" />
+    <Compile Include="ClsSupplier.cs" />
     <Compile Include="ClsUtils.cs" />
+    <Compile Include="ClsWarehouse.cs" />
+    <Compile Include="ClsWarehouseAdjustment.cs" />
+    <Compile Include="ClsWarehouseReturn.cs" />
+    <Compile Include="ClsWarehouseTransfer.cs" />
     <Compile Include="FrmAccessLevel.cs">
       <SubType>Form</SubType>
     </Compile>
